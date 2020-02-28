@@ -41,10 +41,8 @@ public class Ghost : MonoBehaviour
                 if (transform.localPosition.x < 0)
                 {
                     if (transform.localPosition.y > 0)
-                    {
-                        //Quadrant II
+                    {//Quadrant II
                         Debug.Log("Quadrant II");
-
                         if (Input.GetAxisRaw("Horizontal") > 0)
                         {
                             if (Input.GetAxisRaw("Vertical") > 0)
@@ -57,21 +55,16 @@ public class Ghost : MonoBehaviour
                             if (Input.GetAxisRaw("Vertical") > 0)
                             {
                                 oppositeMove = new Vector3(transform.localPosition.normalized.y, -transform.localPosition.normalized.x, 0);
-
                             }
                             else
                             {
                                 oppositeMove = new Vector3(-transform.localPosition.normalized.y, transform.localPosition.normalized.x, 0);
-
                             }
                         }
                     }
                     else
-                    {
-                        //Quadrant III
+                    {   //Quadrant III
                         Debug.Log("Quadrant III");
-
-
                         if (Input.GetAxisRaw("Horizontal") >= 0)
                         {
                             if (Input.GetAxisRaw("Vertical") > 0)
@@ -81,7 +74,6 @@ public class Ghost : MonoBehaviour
                             else
                             {
                                 oppositeMove = new Vector3(-transform.localPosition.normalized.y, transform.localPosition.normalized.x, 0);
-
                             }
                         }
                         else
@@ -89,41 +81,32 @@ public class Ghost : MonoBehaviour
                             if (Input.GetAxisRaw("Vertical") > 0)
                             {
                                 oppositeMove = new Vector3(transform.localPosition.normalized.y, -transform.localPosition.normalized.x, 0);
-
                             }
                             else if(Input.GetAxisRaw("Vertical") == 0)
                             {
                                 oppositeMove = new Vector3(transform.localPosition.normalized.y, -transform.localPosition.normalized.x, 0);
-
                             }
                             else
                             {
                                 oppositeMove = new Vector3(-transform.localPosition.normalized.y, transform.localPosition.normalized.x, 0);
-
                             }
-
-
                         }
                     }
                 }
                 else
                 {
                     if (transform.localPosition.y > 0)
-                    {
-                        //Quadrant I
+                    {//Quadrant I
                         Debug.Log("Quadrant I");
-
                         if (Input.GetAxisRaw("Horizontal") > 0)
                         {
                             if (Input.GetAxisRaw("Vertical") > 0)
                             {
                                 oppositeMove = new Vector3(-transform.localPosition.normalized.y, transform.localPosition.normalized.x, 0);
-
                             }
                             else if(Input.GetAxisRaw("Vertical") == 0)
                             {
                                 oppositeMove = new Vector3(transform.localPosition.normalized.y, -transform.localPosition.normalized.x, 0);
-
                             }
                             else
                             {
@@ -135,36 +118,29 @@ public class Ghost : MonoBehaviour
                             if (Input.GetAxisRaw("Vertical") > 0)
                             {
                                 oppositeMove = new Vector3(-transform.localPosition.normalized.y, transform.localPosition.normalized.x, 0);
-
                             }
                             else
                             {
                                 oppositeMove = new Vector3(transform.localPosition.normalized.y, -transform.localPosition.normalized.x, 0);
-
                             }
                         }
-
                     }
                     else
-                    {
-                        //Quadrant IV
+                    {//Quadrant IV
                         Debug.Log("Quadrant IV");
                         if (Input.GetAxisRaw("Horizontal") > 0)
                         {
                             if (Input.GetAxisRaw("Vertical") > 0)
                             {
                                 oppositeMove = new Vector3(-transform.localPosition.normalized.y, transform.localPosition.normalized.x, 0);
-
                             }
                             else if (Input.GetAxisRaw("Vertical") == 0)
                             {
                                 oppositeMove = new Vector3(-transform.localPosition.normalized.y, transform.localPosition.normalized.x, 0);
-
                             }
                             else
                             {
                                 oppositeMove = new Vector3(transform.localPosition.normalized.y, -transform.localPosition.normalized.x, 0);
-
                             }
                         }
                         else
@@ -172,15 +148,12 @@ public class Ghost : MonoBehaviour
                             if (Input.GetAxisRaw("Vertical") > 0)
                             {
                                 oppositeMove = new Vector3(-transform.localPosition.normalized.y, transform.localPosition.normalized.x, 0);
-
                             }
                             else
                             {
                                 oppositeMove = new Vector3(transform.localPosition.normalized.y, -transform.localPosition.normalized.x, 0);
-
                             }
                         }
-
                     }
                 }
 
@@ -196,7 +169,7 @@ public class Ghost : MonoBehaviour
                 else
                 {
 
-                    transform.Translate(oppositeMove/20);
+                    transform.Translate(oppositeMove/13);
 
                 }
 
