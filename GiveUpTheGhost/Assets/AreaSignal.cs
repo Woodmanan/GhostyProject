@@ -17,7 +17,7 @@ public class AreaSignal : MonoBehaviour
     void Awake()
     {
         SpriteRenderer symbol = transform.Find("Symbol").GetComponent<SpriteRenderer>();
-        //symbol.color = new Color32(0, 0, 0, 0);
+        symbol.color = new Color32(0, 0, 0, 0);
     }
     
     void Start()

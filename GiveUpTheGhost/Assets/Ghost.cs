@@ -8,6 +8,7 @@ public class Ghost : MonoBehaviour
     public bool ghostMode = false;
     private float speed = .4f;
     private float radius = 4;
+
     void Start()
     {
         
@@ -32,6 +33,19 @@ public class Ghost : MonoBehaviour
                 float hMove = Input.GetAxisRaw("Horizontal") * speed;
                 float vMove = Input.GetAxisRaw("Vertical") * speed;
 
+                if (Input.GetAxisRaw("Horizontal") > 0)
+                {
+                    
+                    SpriteRenderer currentImage = transform.Find("GhostSprite").GetComponent<SpriteRenderer>();
+                    currentImage.flipX = false;
+                    
+                }
+                else if(Input.GetAxisRaw("Horizontal") < 0)
+                {
+                    SpriteRenderer currentImage = transform.Find("GhostSprite").GetComponent<SpriteRenderer>();
+                    currentImage.flipX = true;
+
+                }
 
 
                 Vector3 directionMoved = new Vector3(hMove, vMove, 0);

@@ -59,6 +59,20 @@ public class Monster : MonoBehaviour
             }
         }
 
+        if(curr_direction == 0)
+        {
+
+            SpriteRenderer currentImage = transform.Find("MonsterSprite").GetComponent<SpriteRenderer>();
+            currentImage.flipX = false;
+
+        }
+        else
+        {
+            SpriteRenderer currentImage = transform.Find("MonsterSprite").GetComponent<SpriteRenderer>();
+            currentImage.flipX = true;
+
+        }
+
         if (enemyType == 0)
         {
             enemyTypeZero();

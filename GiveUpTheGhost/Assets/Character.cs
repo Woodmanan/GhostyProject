@@ -110,6 +110,19 @@ public class Character : MonoBehaviour
                 vMove = jump;
             }
 
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+
+                SpriteRenderer currentImage = transform.Find("CharacterSprite").GetComponent<SpriteRenderer>();
+                currentImage.flipX = false;
+
+            }
+            else if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                SpriteRenderer currentImage = transform.Find("CharacterSprite").GetComponent<SpriteRenderer>();
+                currentImage.flipX = true;
+
+            }
 
 
             Vector2 directionMoved = new Vector2(hMove, vMove);
