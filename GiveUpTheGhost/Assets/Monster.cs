@@ -15,6 +15,8 @@ public class Monster : MonoBehaviour
     public float boundary;
     public float jumpForce;
     public bool inAir;
+    public bool hitJumpSignal = false;
+    
     
     public float speed;
     private int accel;
@@ -106,6 +108,7 @@ public class Monster : MonoBehaviour
             isJumping = false;
             inAir = true;
 
+
         }
 
         transform.Translate(newPosition);
@@ -123,14 +126,20 @@ public class Monster : MonoBehaviour
             if (((signalSpace.jump == true) && (isJumping == false)) && inAir == false)
             {
                 isJumping = true;
+                hitJumpSignal = true;
+
+
+
             }
 
             if (signalSpace.reverse == true)
             {
             }
 
-
         }
+
+
+
     }
 
     
