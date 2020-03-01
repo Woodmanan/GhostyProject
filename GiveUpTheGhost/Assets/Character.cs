@@ -1,63 +1,81 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Character : MonoBehaviour
 {
 
     private bool ghostMode = false;
-    private float accel = 7;
-    private float maxSpeed = 100;
+    [SerializeField] private float accel = 7;
+    [SerializeField] private float maxSpeed = 100;
+    [SerializeField] private float jumpForce;
     private float currSpeed = 20;
     private float jumpValue = 100;
     private bool isJumping = false; // checks if accepting vertical jump input
     private Rigidbody2D thisBody;
 
-    private Vector2 direction = Vector2.right;
+    
 
     private float airDuration = 0;  //duration in air
+    [SerializeField] private float jumpCooldownTime;
     private float airDurationLimit = 6;  //essentially jump height limit
+    [SerializeField] private LayerMask jumpingMask;
+    private float jumpCooldown;
   
 
     private bool grounded = false;
     private int debugNum = 0;
 
+    private SpriteRenderer sprite;
+
 
     private List<string> floors = new List<string>() { "Floor", "Platform"};
+
+    private Ghost ghost;
+
+    [SerializeField] private float radius;
+    [SerializeField] private Vector2 groundCheck;
 
     // Start is called before the first frame update
     void Start()
     {
-        
         thisBody = GetComponent<Rigidbody2D>();
         thisBody.freezeRotation = true;
+        sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        jumpCooldown = 0;
+        ghost = GameObject.FindGameObjectWithTag("Ghost").GetComponent<Ghost>();
     }
 
     // Update is called once per frame
 
     void Update()
     {
-        if (Input.GetButtonUp("Jump"))
+        //Update for every frame
+        jumpCooldown -= Time.deltaTime;
+        
+        
+        if (Input.GetButtonDown("Jump"))
         {
 
            
 
-            if (ghostMode == true)
+            if (ghostMode)
             {
-                ghostMode = false;
-                Ghost theGhost = transform.Find("Ghost").GetComponent<Ghost>();
-                theGhost.ghostMode = false;
+                if (ghost.gameObject.activeSelf)
+                {
+                    ghostMode = false;
+                    ghost.disableGhostMode();
 
-                Transform myChild = transform.Find("Ghost");
-                myChild.localPosition = new Vector3(0, 0, 0);
-                
-
+                    //Reset position
+                    //ghost.transform.localPosition = new Vector3(0, 0, 1);
+                }
             }
             else
             {
                 ghostMode = true;
-                Ghost myChild = transform.GetChild(1).GetComponent<Ghost>();
-                myChild.ghostMode = true;
+                ghost.enableGhostMode();
             }
 
             debugNum++;
@@ -88,45 +106,68 @@ public class Character : MonoBehaviour
         }
     }
 
+    //Raycasting test, to ensure that we're on the ground
+    private bool onGround()
+    {
+        
+        //Set up raycast, based on ground check
+        RaycastHit2D hit;
+        hit = Physics2D.Raycast(transform.position, groundCheck, groundCheck.magnitude, jumpingMask);
+        Debug.DrawRay(transform.position, groundCheck, Color.yellow, groundCheck.magnitude);
+        //Check for hit!
+        if (hit.collider)
+        {
+            print("It's on the ground!");
+            grounded = true;
+            return true;
+        }
+        else
+        {
+            print("Tried to be on the ground, and wasn't!");
+            grounded = false;
+            return false;
+        }
+    }
+
     private void Movement()
     {
-
+        //Rigidbody Velocity Movement
+        float inputVelocty = Input.GetAxisRaw("Horizontal");
+        thisBody.velocity = new Vector2(inputVelocty * maxSpeed, thisBody.velocity.y);
+        
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
 
             float hMove = Input.GetAxisRaw("Horizontal") * currSpeed;
             float vMove = 0;
             float jump = Input.GetAxisRaw("Vertical") * jumpValue;
-
-            if ((jump > 0) && grounded)
+            
+            //Uses onGround to raycast for floor collisions
+            if ((jump > 0) && onGround() && jumpCooldown <= 0)
             {
-
-                isJumping = true;
-                grounded = false;
+                //vMove = jump;
+                //Add Force to body to cause jump
+                thisBody.velocity = new Vector2(thisBody.velocity.x, 0);
+                thisBody.AddForce(jumpForce * Vector2.up, ForceMode2D.Force);
+                
+                jumpCooldown = jumpCooldownTime;
             }
 
-            if (isJumping)
-            {
-                vMove = jump;
-            }
-
+            //Flip our sprite!
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-
-                SpriteRenderer currentImage = transform.Find("CharacterSprite").GetComponent<SpriteRenderer>();
-                currentImage.flipX = false;
-
+                sprite.flipX = false;
             }
             else if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                SpriteRenderer currentImage = transform.Find("CharacterSprite").GetComponent<SpriteRenderer>();
-                currentImage.flipX = true;
+                sprite.flipX = true;
 
             }
 
-
+            /*
             Vector2 directionMoved = new Vector2(hMove, vMove);
             thisBody.AddForce(directionMoved);
+            */
 
 
         }
@@ -150,9 +191,21 @@ public class Character : MonoBehaviour
 
     }
 
-   
+    public float getDistance()
+    {
+        return radius;
+    }
 
-  
+    public Vector2 getPosition()
+    {
+        return thisBody.position;
+    }
 
-
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(groundCheck.x, groundCheck.y, 0));
+    }
 }
