@@ -37,6 +37,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] private float radius;
     [SerializeField] private Vector2 groundCheck;
+    [SerializeField] private int health;
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +95,8 @@ public class Character : MonoBehaviour
        
 
     }
+    
+    
 
     
 
@@ -207,5 +210,20 @@ public class Character : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, radius);
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(groundCheck.x, groundCheck.y, 0));
+    }
+
+
+    private void Die()
+    {
+        GameManager.instance.restartLevel();
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        health -= dmg;
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 }
