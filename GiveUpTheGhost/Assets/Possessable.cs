@@ -12,6 +12,7 @@ public class Possessable : MonoBehaviour
 
     public bool possessed;
     [SerializeField] private float distToPossess;
+    [SerializeField] private float speed = 1;
 
     private Vector2 target;
     private Rigidbody2D rig;
@@ -46,7 +47,7 @@ public class Possessable : MonoBehaviour
         {
             Vector2 offset = new Vector2(Input.GetAxis(horizontalAxis), Input.GetAxis(verticalAxis));
             //target += offset;
-            rig.velocity = offset;
+            rig.velocity = offset * speed;
             
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {

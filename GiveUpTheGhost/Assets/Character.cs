@@ -7,7 +7,7 @@ using UnityEngine.Rendering;
 public class Character : MonoBehaviour
 {
 
-    private bool ghostMode = false;
+    [HideInInspector] public bool ghostMode = false;
     [SerializeField] private float accel = 7;
     [SerializeField] private float maxSpeed = 100;
     [SerializeField] private float jumpForce;
@@ -16,7 +16,7 @@ public class Character : MonoBehaviour
     private bool isJumping = false; // checks if accepting vertical jump input
     private Rigidbody2D thisBody;
 
-    
+
 
     private float airDuration = 0;  //duration in air
     [SerializeField] private float jumpCooldownTime;
@@ -50,7 +50,7 @@ public class Character : MonoBehaviour
     }
 
     // Update is called once per frame
-
+    
     void Update()
     {
         //Update for every frame
@@ -66,7 +66,8 @@ public class Character : MonoBehaviour
             {
                 if (ghost.gameObject.activeSelf)
                 {
-                    ghostMode = false;
+                    //Ghostmode set in ghost now, to better fit animation
+                    //ghostMode = false;
                     ghost.disableGhostMode();
 
                     //Reset position
@@ -75,8 +76,10 @@ public class Character : MonoBehaviour
             }
             else
             {
+
                 ghostMode = true;
                 ghost.enableGhostMode();
+
             }
 
             debugNum++;
@@ -84,6 +87,7 @@ public class Character : MonoBehaviour
 
 
     }
+
     void FixedUpdate()
     {
          
@@ -117,6 +121,7 @@ public class Character : MonoBehaviour
         RaycastHit2D hit;
         hit = Physics2D.Raycast(transform.position, groundCheck, groundCheck.magnitude, jumpingMask);
         Debug.DrawRay(transform.position, groundCheck, Color.yellow, groundCheck.magnitude);
+        
         //Check for hit!
         if (hit.collider)
         {

@@ -17,16 +17,23 @@
     <setting file="file://$PROJECT_DIR$/Assets/Character.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Ghost.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AreaSignal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shaders/Darkness.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DeathOnTouch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CircleController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Stalactite.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/DeathOnTouch.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" />
+        <option value="$PROJECT_DIR$/Assets/CircleController.cs" />
         <option value="$PROJECT_DIR$/Assets/Ghost.cs" />
         <option value="$PROJECT_DIR$/Assets/Possessable.cs" />
-        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Character.cs" />
-        <option value="$PROJECT_DIR$/Assets/DeathOnTouch.cs" />
+        <option value="$PROJECT_DIR$/Assets/Stalactite.cs" />
       </list>
     </option>
   </component>
@@ -89,6 +96,9 @@
       <workItem from="1583009756483" duration="11208000" />
       <workItem from="1583079839521" duration="3479000" />
       <workItem from="1583084498178" duration="877000" />
+      <workItem from="1583272532245" duration="713000" />
+      <workItem from="1583273271642" duration="2137000" />
+      <workItem from="1583275433460" duration="2895000" />
     </task>
     <servers />
   </component>
@@ -109,5 +119,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1583274283695">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1583274283695" />
   </component>
 </project>
