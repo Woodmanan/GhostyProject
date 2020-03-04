@@ -27,7 +27,9 @@ public class Monster : MonoBehaviour
     private Rigidbody2D thisBody;
 
     private bool isJumping = false;
-    
+
+    private GameObject mainCharacterFound;
+    private bool characterFound = false;
     void Start()
     {
 
@@ -45,6 +47,7 @@ public class Monster : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // 0 is right, 1 is false
         if (transform.localPosition.x < left_limit + horizontal_margin)
         {
             if (curr_direction == 1)
@@ -60,6 +63,41 @@ public class Monster : MonoBehaviour
                 curr_direction = 1;
             }
         }
+
+
+        if (characterFound)
+        {
+            if (transform.localPosition.x < mainCharacterFound.transform.localPosition.x)
+            {
+                curr_direction = 0;
+
+            }
+            else if (transform.localPosition.x > mainCharacterFound.transform.localPosition.x)
+            {
+                curr_direction = 1;
+            }
+
+            
+            /*if (mainCharacterFound.transform.localPosition.x < left_limit + horizontal_margin)
+            {
+                Debug.Log("CharacterFound False");
+                characterFound = false;
+
+            }
+
+            if (mainCharacterFound.transform.localPosition.x > right_limit - horizontal_margin)
+            {
+                characterFound = false;
+                Debug.Log("CharacterFound False");
+
+            }*/
+            
+
+        }
+
+
+
+
 
         if(curr_direction == 0)
         {
@@ -79,6 +117,9 @@ public class Monster : MonoBehaviour
         {
             enemyTypeZero();
         }
+        
+        
+        
 
     }
 
@@ -159,12 +200,18 @@ public class Monster : MonoBehaviour
         }
 
 
+    }
 
+    public void SetMainCharacterPosition(GameObject character)
+    {
 
+        mainCharacterFound = character;
 
-
+        characterFound = true;
+        Debug.Log("FOUND THE CHARACTER");
 
     }
 
+  
 
 }
