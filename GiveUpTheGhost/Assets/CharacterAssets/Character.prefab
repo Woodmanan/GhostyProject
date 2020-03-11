@@ -339,13 +339,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cad57bdb48bc4a42b4e10df37ba20e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostMode: 0
   accel: 7
   maxSpeed: 10
   jumpForce: 140
   jumpCooldownTime: 0.2
   jumpingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   radius: 5.41
   groundCheck: {x: 0, y: -0.83}
   health: 4

@@ -26,14 +26,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/DeathOnTouch.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" />
         <option value="$PROJECT_DIR$/Assets/CircleController.cs" />
         <option value="$PROJECT_DIR$/Assets/Ghost.cs" />
-        <option value="$PROJECT_DIR$/Assets/Possessable.cs" />
         <option value="$PROJECT_DIR$/Assets/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Stalactite.cs" />
+        <option value="$PROJECT_DIR$/Assets/Possessable.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -99,6 +99,7 @@
       <workItem from="1583272532245" duration="713000" />
       <workItem from="1583273271642" duration="2137000" />
       <workItem from="1583275433460" duration="2895000" />
+      <workItem from="1583939867505" duration="4215000" />
     </task>
     <servers />
   </component>

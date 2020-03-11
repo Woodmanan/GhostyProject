@@ -13,6 +13,7 @@
         <e p="GameManager.cs" t="Include" />
         <e p="Ghost.cs" t="Include" />
         <e p="Monster.cs" t="Include" />
+        <e p="MonsterSense.cs" t="Include" />
         <e p="Possessable.cs" t="Include" />
         <e p="Shaders" t="Include">
           <e p="Darkness.shader" t="Include" />

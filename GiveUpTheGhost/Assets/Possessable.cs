@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Events;
 
 public class Possessable : MonoBehaviour
 {
@@ -14,12 +15,22 @@ public class Possessable : MonoBehaviour
     [SerializeField] private float distToPossess;
     [SerializeField] private float speed = 1;
 
+    //Collision variables
+    [SerializeField] private float speedToDamage;
+    [SerializeField] private int damage;
+    private float actualSpeed;
+    
     private Vector2 target;
     private Rigidbody2D rig;
 
     private Character body;
     private Ghost ghost;
     private DistanceJoint2D joint;
+    
+    
+    //Event for possession start
+    public UnityEvent possessionBegins;
+    
     
     
     // Start is called before the first frame update
@@ -33,11 +44,13 @@ public class Possessable : MonoBehaviour
         //Set up our joint
         joint = GetComponent<DistanceJoint2D>();
         joint.enabled = false;
+        actualSpeed = 0;
     }
 
     private void FixedUpdate()
     {
         joint.connectedAnchor = body.gameObject.transform.position;
+        actualSpeed = rig.velocity.magnitude;
     }
 
     // Update is called once per frame
@@ -83,8 +96,9 @@ public class Possessable : MonoBehaviour
 
         rig.velocity = Vector2.zero;
         this.possessed = true;
-        
+
         target = rig.position + offset;
+        possessionBegins.Invoke();
     }
     
 
@@ -120,5 +134,22 @@ public class Possessable : MonoBehaviour
     {
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, distToPossess);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distToPossess * (actualSpeed / speedToDamage));
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (actualSpeed >= speedToDamage)
+        {
+            //Player Damage
+            if (other.gameObject.CompareTag("Body"))
+            {
+                other.gameObject.GetComponent<Character>().TakeDamage(damage);
+            }
+            
+            //Monster dmg
+            //TODO: Fill this out
+        }
     }
 }
