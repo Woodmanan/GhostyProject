@@ -33,8 +33,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Grab the body, which is always enabled
         body = GameObject.FindGameObjectWithTag("Body").GetComponent<Character>();
-        ghost = GameObject.FindGameObjectWithTag("Ghost").GetComponent<Ghost>();
+        
+        //Weird calls, because sometimes the ghost isn't enabled
+        //Which causes GameObject.Find to not work
+        ghost = body.transform.GetChild(2).GetComponent<Ghost>();
     }
 
     // Update is called once per frame

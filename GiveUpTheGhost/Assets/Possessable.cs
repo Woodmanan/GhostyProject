@@ -76,12 +76,45 @@ public class Possessable : MonoBehaviour
                 print("Distance: " + Vector2.Distance(transform.position, ghost.transform.position));
                 if (Vector2.Distance(transform.position, ghost.transform.position) < distToPossess)
                 {
-                    
-                    Possess();
+                    //Do the expensive check now
+                    if (body.GetBeneath() == this.gameObject)
+                    {
+                        print("Didn't possess!");
+                        StartCoroutine(FlashRed(1.0f, .25f));
+                    }
+                    else
+                    {
+                        Possess();
+                    }
                 }
                 
             }
         }
+    }
+
+    IEnumerator FlashRed(float timeToFlash, float timeToHold)
+    {
+        yield return null;
+        float timer = 0;
+        bool red = false;
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        while (timer < timeToFlash)
+        {
+            timer += timeToHold;
+            if (red)
+            {
+                sprite.color = Color.white;
+            }
+            else
+            {
+                sprite.color = Color.red;
+            }
+
+            red = !red;
+            yield return new WaitForSeconds(timeToHold);
+        }
+
+        sprite.color = Color.white;
     }
 
     IEnumerator startPossession(float lerpTime, Vector2 offset)

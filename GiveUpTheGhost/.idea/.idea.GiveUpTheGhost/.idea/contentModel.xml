@@ -10,6 +10,8 @@
         <e p="Character.cs" t="Include" />
         <e p="CircleController.cs" t="Include" />
         <e p="DeathOnTouch.cs" t="Include" />
+        <e p="EndLevel.cs" t="Include" />
+        <e p="FollowsPlayer.cs" t="Include" />
         <e p="GameManager.cs" t="Include" />
         <e p="Ghost.cs" t="Include" />
         <e p="Monster.cs" t="Include" />

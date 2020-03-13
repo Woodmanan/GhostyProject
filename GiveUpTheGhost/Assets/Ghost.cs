@@ -19,7 +19,9 @@ public class Ghost : MonoBehaviour
         body = GameObject.FindGameObjectWithTag("Body").GetComponent<Character>();
         //joint.enabled = false;
         joint.distance = 0;//body.getDistance();
+        joint.enabled = false;
         rigid = GetComponent<Rigidbody2D>();
+        rigid.simulated = false;
         radius = transform.parent.GetComponentInChildren<CircleController>();
         radius.setRad(body.getDistance());
     }
@@ -54,6 +56,8 @@ public class Ghost : MonoBehaviour
     public void enableGhostMode()
     {
         ghostMode = true;
+        rigid.simulated = true;
+        joint.enabled = true;
         StartCoroutine(setGhost(.5f));
     }
 
@@ -69,7 +73,9 @@ public class Ghost : MonoBehaviour
         }
         radius.setLerp(0);
         joint.distance = 0;
+        joint.enabled = false;
         body.ghostMode = false;
+        rigid.simulated = false;
     }
 
     public void disableGhostMode()
