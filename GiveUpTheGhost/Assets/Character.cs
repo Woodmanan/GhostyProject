@@ -70,7 +70,7 @@ public class Character : MonoBehaviour
                     //Ghostmode set in ghost now, to better fit animation
                     //ghostMode = false;
                     ghost.disableGhostMode();
-                    thisBody.mass = 1f;
+                    //thisBody.mass = 1f;
                     thisBody.drag = 0;
 
                     //Reset position
@@ -82,7 +82,7 @@ public class Character : MonoBehaviour
 
                 ghostMode = true;
                 ghost.enableGhostMode();
-                thisBody.mass = 100f;
+                //thisBody.mass = 100f;
                 thisBody.drag = 4f;
 
             }

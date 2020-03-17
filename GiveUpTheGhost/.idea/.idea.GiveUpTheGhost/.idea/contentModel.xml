@@ -7,6 +7,8 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="AreaSignal.cs" t="Include" />
+        <e p="BossfightControls.cs" t="Include" />
+        <e p="BridgeConnector.cs" t="Include" />
         <e p="Character.cs" t="Include" />
         <e p="CircleController.cs" t="Include" />
         <e p="DeathOnTouch.cs" t="Include" />
