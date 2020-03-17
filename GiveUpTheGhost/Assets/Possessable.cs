@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Events;
 
 public class Possessable : MonoBehaviour
 {
@@ -12,13 +13,24 @@ public class Possessable : MonoBehaviour
 
     public bool possessed;
     [SerializeField] private float distToPossess;
+    [SerializeField] private float speed = 1;
 
+    //Collision variables
+    [SerializeField] private float speedToDamage;
+    [SerializeField] private int damage;
+    private float actualSpeed;
+    
     private Vector2 target;
     private Rigidbody2D rig;
 
     private Character body;
     private Ghost ghost;
     private DistanceJoint2D joint;
+    
+    
+    //Event for possession start
+    public UnityEvent possessionBegins;
+    
     
     
     // Start is called before the first frame update
@@ -32,11 +44,13 @@ public class Possessable : MonoBehaviour
         //Set up our joint
         joint = GetComponent<DistanceJoint2D>();
         joint.enabled = false;
+        actualSpeed = 0;
     }
 
     private void FixedUpdate()
     {
         joint.connectedAnchor = body.gameObject.transform.position;
+        actualSpeed = rig.velocity.magnitude;
     }
 
     // Update is called once per frame
@@ -46,7 +60,7 @@ public class Possessable : MonoBehaviour
         {
             Vector2 offset = new Vector2(Input.GetAxis(horizontalAxis), Input.GetAxis(verticalAxis));
             //target += offset;
-            rig.velocity = offset;
+            rig.velocity = offset * speed;
             
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
@@ -62,12 +76,45 @@ public class Possessable : MonoBehaviour
                 print("Distance: " + Vector2.Distance(transform.position, ghost.transform.position));
                 if (Vector2.Distance(transform.position, ghost.transform.position) < distToPossess)
                 {
-                    
-                    Possess();
+                    //Do the expensive check now
+                    if (body.GetBeneath() == this.gameObject)
+                    {
+                        print("Didn't possess!");
+                        StartCoroutine(FlashRed(1.0f, .25f));
+                    }
+                    else
+                    {
+                        Possess();
+                    }
                 }
                 
             }
         }
+    }
+
+    IEnumerator FlashRed(float timeToFlash, float timeToHold)
+    {
+        yield return null;
+        float timer = 0;
+        bool red = false;
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        while (timer < timeToFlash)
+        {
+            timer += timeToHold;
+            if (red)
+            {
+                sprite.color = Color.white;
+            }
+            else
+            {
+                sprite.color = Color.red;
+            }
+
+            red = !red;
+            yield return new WaitForSeconds(timeToHold);
+        }
+
+        sprite.color = Color.white;
     }
 
     IEnumerator startPossession(float lerpTime, Vector2 offset)
@@ -82,8 +129,9 @@ public class Possessable : MonoBehaviour
 
         rig.velocity = Vector2.zero;
         this.possessed = true;
-        
+
         target = rig.position + offset;
+        possessionBegins.Invoke();
     }
     
 
@@ -119,5 +167,22 @@ public class Possessable : MonoBehaviour
     {
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, distToPossess);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distToPossess * (actualSpeed / speedToDamage));
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (actualSpeed >= speedToDamage)
+        {
+            //Player Damage
+            if (other.gameObject.CompareTag("Body"))
+            {
+                other.gameObject.GetComponent<Character>().TakeDamage(damage);
+            }
+            
+            //Monster dmg
+            //TODO: Fill this out
+        }
     }
 }

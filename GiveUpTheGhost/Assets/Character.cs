@@ -7,7 +7,7 @@ using UnityEngine.Rendering;
 public class Character : MonoBehaviour
 {
 
-    private bool ghostMode = false;
+    [HideInInspector] public bool ghostMode = false;
     [SerializeField] private float accel = 7;
     [SerializeField] private float maxSpeed = 100;
     [SerializeField] private float jumpForce;
@@ -16,7 +16,7 @@ public class Character : MonoBehaviour
     private bool isJumping = false; // checks if accepting vertical jump input
     private Rigidbody2D thisBody;
 
-    
+
 
     private float airDuration = 0;  //duration in air
     [SerializeField] private float jumpCooldownTime;
@@ -37,6 +37,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] private float radius;
     [SerializeField] private Vector2 groundCheck;
+    [SerializeField] private float jumpRad;
     [SerializeField] private int health;
 
     // Start is called before the first frame update
@@ -50,7 +51,7 @@ public class Character : MonoBehaviour
     }
 
     // Update is called once per frame
-
+    
     void Update()
     {
         //Update for every frame
@@ -66,8 +67,11 @@ public class Character : MonoBehaviour
             {
                 if (ghost.gameObject.activeSelf)
                 {
-                    ghostMode = false;
+                    //Ghostmode set in ghost now, to better fit animation
+                    //ghostMode = false;
                     ghost.disableGhostMode();
+                    //thisBody.mass = 1f;
+                    thisBody.drag = 0;
 
                     //Reset position
                     //ghost.transform.localPosition = new Vector3(0, 0, 1);
@@ -75,8 +79,12 @@ public class Character : MonoBehaviour
             }
             else
             {
+
                 ghostMode = true;
                 ghost.enableGhostMode();
+                //thisBody.mass = 100f;
+                thisBody.drag = 4f;
+
             }
 
             debugNum++;
@@ -84,6 +92,7 @@ public class Character : MonoBehaviour
 
 
     }
+
     void FixedUpdate()
     {
          
@@ -94,6 +103,26 @@ public class Character : MonoBehaviour
          
        
 
+    }
+
+    public GameObject GetBeneath()
+    {
+        //Set up raycast, based on ground check
+        RaycastHit2D hit;
+        hit = Physics2D.CircleCast(transform.position, jumpRad, groundCheck, groundCheck.magnitude - jumpRad, jumpingMask);
+        //hit = Physics2D.Raycast(transform.position, groundCheck, groundCheck.magnitude, jumpingMask);
+        Debug.DrawRay(transform.position, groundCheck, Color.yellow, groundCheck.magnitude);
+        
+        //Check for hit!
+        if (hit.collider)
+        {
+            return hit.collider.gameObject;
+        }
+        else
+        {
+            return null;
+        }
+    
     }
     
     
@@ -115,8 +144,10 @@ public class Character : MonoBehaviour
         
         //Set up raycast, based on ground check
         RaycastHit2D hit;
-        hit = Physics2D.Raycast(transform.position, groundCheck, groundCheck.magnitude, jumpingMask);
+        hit = Physics2D.CircleCast(transform.position, jumpRad, groundCheck, groundCheck.magnitude - jumpRad, jumpingMask);
+        //hit = Physics2D.Raycast(transform.position, groundCheck, groundCheck.magnitude, jumpingMask);
         Debug.DrawRay(transform.position, groundCheck, Color.yellow, groundCheck.magnitude);
+        
         //Check for hit!
         if (hit.collider)
         {
@@ -210,6 +241,7 @@ public class Character : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, radius);
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(groundCheck.x, groundCheck.y, 0));
+        Gizmos.DrawWireSphere(transform.position + new Vector3(groundCheck.x, groundCheck.y + jumpRad, 0), jumpRad);
     }
 
 
@@ -225,5 +257,11 @@ public class Character : MonoBehaviour
         {
             Die();
         }
+    }
+
+    private void OnDestroy()
+    {
+        print("Destroying");
+        //GetComponent<CapsuleCollider2D>().sharedMaterial.friction = 1;
     }
 }

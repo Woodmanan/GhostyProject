@@ -11,6 +11,7 @@ public class Ghost : MonoBehaviour
     private DistanceJoint2D joint;
     private Character body;
     private Rigidbody2D rigid;
+    private CircleController radius;
 
     void Start()
     {
@@ -18,7 +19,11 @@ public class Ghost : MonoBehaviour
         body = GameObject.FindGameObjectWithTag("Body").GetComponent<Character>();
         //joint.enabled = false;
         joint.distance = 0;//body.getDistance();
+        joint.enabled = false;
         rigid = GetComponent<Rigidbody2D>();
+        rigid.simulated = false;
+        radius = transform.parent.GetComponentInChildren<CircleController>();
+        radius.setRad(body.getDistance());
     }
 
     //Events that need to happen before physics
@@ -34,10 +39,26 @@ public class Ghost : MonoBehaviour
         GhostMovement();
     }
 
+    IEnumerator setGhost(float timer)
+    {
+        float dist = body.getDistance();
+        for (float i = timer; i >= 0; i -= Time.deltaTime)
+        {
+            //Fancy lerp sliding
+            joint.distance = Mathf.Lerp(0, dist, i / timer);
+            radius.setLerp(1 - i/timer);
+            yield return null;
+        }
+        radius.setLerp(1);
+        joint.distance = dist;
+    }
+
     public void enableGhostMode()
     {
         ghostMode = true;
-        joint.distance = body.getDistance();
+        rigid.simulated = true;
+        joint.enabled = true;
+        StartCoroutine(setGhost(.5f));
     }
 
     IEnumerator returnGhost(float timer)
@@ -47,10 +68,14 @@ public class Ghost : MonoBehaviour
         {
             //Fancy lerp sliding
             joint.distance = Mathf.Lerp(dist, 0, i / timer);
+            radius.setLerp(1 - i/timer);
             yield return null;
         }
-
+        radius.setLerp(0);
         joint.distance = 0;
+        joint.enabled = false;
+        body.ghostMode = false;
+        rigid.simulated = false;
     }
 
     public void disableGhostMode()

@@ -11,22 +11,37 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shaders/Darkness.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BridgeConnector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DeathOnTouch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/EndLevel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CircleController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/FollowsPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Possessable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/db/b173059e/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Character.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BossfightControls.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Ghost.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AreaSignal.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/DeathOnTouch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Stalactite.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Assets/DeathOnTouch.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" />
+        <option value="$PROJECT_DIR$/Assets/CircleController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Stalactite.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/FollowsPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Ghost.cs" />
         <option value="$PROJECT_DIR$/Assets/Possessable.cs" />
-        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/EndLevel.cs" />
         <option value="$PROJECT_DIR$/Assets/Character.cs" />
-        <option value="$PROJECT_DIR$/Assets/DeathOnTouch.cs" />
+        <option value="$PROJECT_DIR$/Assets/BridgeConnector.cs" />
+        <option value="$PROJECT_DIR$/Assets/BossfightControls.cs" />
       </list>
     </option>
   </component>
@@ -39,7 +54,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="Rider.SolutionExplorerActivator" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TWShift.3" value="true" />
     <property name="TWShift.4" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -89,6 +106,13 @@
       <workItem from="1583009756483" duration="11208000" />
       <workItem from="1583079839521" duration="3479000" />
       <workItem from="1583084498178" duration="877000" />
+      <workItem from="1583272532245" duration="713000" />
+      <workItem from="1583273271642" duration="2137000" />
+      <workItem from="1583275433460" duration="2895000" />
+      <workItem from="1583939867505" duration="7364000" />
+      <workItem from="1584112764387" duration="4699000" />
+      <workItem from="1584206355624" duration="64000" />
+      <workItem from="1584404058041" duration="2313000" />
     </task>
     <servers />
   </component>
@@ -109,5 +133,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1583274283695">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1583274283695" />
   </component>
 </project>
