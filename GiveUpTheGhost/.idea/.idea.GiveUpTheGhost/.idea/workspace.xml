@@ -12,6 +12,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ObstacleSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PlatformMover.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/FallingDamage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/Darkness.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/BridgeConnector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DeathOnTouch.cs" root0="FORCE_HIGHLIGHTING" />
@@ -21,10 +24,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/FollowsPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Possessable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/db/b173059e/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/EndFightOnTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Character.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/BossfightControls.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Ghost.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AreaSignal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shield.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Stalactite.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -42,6 +47,11 @@
         <option value="$PROJECT_DIR$/Assets/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/BridgeConnector.cs" />
         <option value="$PROJECT_DIR$/Assets/BossfightControls.cs" />
+        <option value="$PROJECT_DIR$/Assets/EndFightOnTrigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shield.cs" />
+        <option value="$PROJECT_DIR$/Assets/FallingDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/ObstacleSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlatformMover.cs" />
       </list>
     </option>
   </component>
@@ -113,6 +123,7 @@
       <workItem from="1584112764387" duration="4699000" />
       <workItem from="1584206355624" duration="64000" />
       <workItem from="1584404058041" duration="2313000" />
+      <workItem from="1584716126953" duration="7869000" />
     </task>
     <servers />
   </component>
@@ -135,6 +146,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="409" y="222" key="run.anything.popup" timestamp="1584732410507">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="409" y="222" key="run.anything.popup/0.0.1504.963@0.0.1504.963" timestamp="1584732410507" />
     <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1583274283695">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
