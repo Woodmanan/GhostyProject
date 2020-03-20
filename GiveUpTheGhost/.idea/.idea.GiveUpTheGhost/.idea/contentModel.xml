@@ -12,17 +12,22 @@
         <e p="Character.cs" t="Include" />
         <e p="CircleController.cs" t="Include" />
         <e p="DeathOnTouch.cs" t="Include" />
+        <e p="EndFightOnTrigger.cs" t="Include" />
         <e p="EndLevel.cs" t="Include" />
+        <e p="FallingDamage.cs" t="Include" />
         <e p="FollowsPlayer.cs" t="Include" />
         <e p="GameManager.cs" t="Include" />
         <e p="Ghost.cs" t="Include" />
         <e p="Monster.cs" t="Include" />
         <e p="MonsterSense.cs" t="Include" />
+        <e p="ObstacleSpawner.cs" t="Include" />
+        <e p="PlatformMover.cs" t="Include" />
         <e p="Possessable.cs" t="Include" />
         <e p="Shaders" t="Include">
           <e p="Darkness.shader" t="Include" />
           <e p="GhostCircle.shader" t="Include" />
         </e>
+        <e p="Shield.cs" t="Include" />
         <e p="Stalactite.cs" t="Include" />
       </e>
       <e p="GiveUpTheGhost.sln" t="IncludeFlat" />
