@@ -38,17 +38,29 @@ public class GameManager : MonoBehaviour
         
         //Weird calls, because sometimes the ghost isn't enabled
         //Which causes GameObject.Find to not work
-        ghost = body.transform.GetChild(2).GetComponent<Ghost>();
+        if (body)
+        {
+            ghost = body.transform.GetChild(2).GetComponent<Ghost>();
+        }
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         
     }
 
-    public void restartLevel()
+    public void MoveToNext()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

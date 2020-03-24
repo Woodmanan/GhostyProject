@@ -22,7 +22,7 @@ public class EndLevel : MonoBehaviour
     {
         if (other.CompareTag("Body"))
         {
-            GameManager.instance.restartLevel();
+            GameManager.instance.MoveToNext();
         }
     }
 }

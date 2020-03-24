@@ -39,12 +39,9 @@
         <option value="$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" />
         <option value="$PROJECT_DIR$/Assets/CircleController.cs" />
         <option value="$PROJECT_DIR$/Assets/Stalactite.cs" />
-        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/FollowsPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Ghost.cs" />
         <option value="$PROJECT_DIR$/Assets/Possessable.cs" />
-        <option value="$PROJECT_DIR$/Assets/EndLevel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/BridgeConnector.cs" />
         <option value="$PROJECT_DIR$/Assets/BossfightControls.cs" />
         <option value="$PROJECT_DIR$/Assets/EndFightOnTrigger.cs" />
@@ -52,6 +49,9 @@
         <option value="$PROJECT_DIR$/Assets/FallingDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/ObstacleSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/PlatformMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/EndLevel.cs" />
       </list>
     </option>
   </component>
@@ -124,6 +124,7 @@
       <workItem from="1584206355624" duration="64000" />
       <workItem from="1584404058041" duration="2313000" />
       <workItem from="1584716126953" duration="7869000" />
+      <workItem from="1585015325186" duration="1510000" />
     </task>
     <servers />
   </component>

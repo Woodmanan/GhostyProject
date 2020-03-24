@@ -247,7 +247,7 @@ public class Character : MonoBehaviour
 
     private void Die()
     {
-        GameManager.instance.restartLevel();
+        GameManager.instance.RestartLevel();
     }
 
     public void TakeDamage(int dmg)
