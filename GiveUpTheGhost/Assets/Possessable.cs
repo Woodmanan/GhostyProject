@@ -64,7 +64,6 @@ public class Possessable : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                
                 stopPossession();
             }
         }
@@ -182,7 +181,10 @@ public class Possessable : MonoBehaviour
             }
             
             //Monster dmg
-            //TODO: Fill this out
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                other.gameObject.GetComponent<Monster>().TakeDamage(damage);
+            }
         }
     }
 }

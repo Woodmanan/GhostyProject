@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         set => Instance = value;
     }
 
-    //Character objects we neec
+    //Character objects we need
     private Character body;
     private Ghost ghost;
 
@@ -34,12 +34,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //Grab the body, which is always enabled
-        body = GameObject.FindGameObjectWithTag("Body").GetComponent<Character>();
+        GameObject bodytmp = GameObject.FindGameObjectWithTag("Body");
+        
         
         //Weird calls, because sometimes the ghost isn't enabled
         //Which causes GameObject.Find to not work
-        if (body)
+        if (bodytmp)
         {
+            body = bodytmp.GetComponent<Character>();
             ghost = body.transform.GetChild(2).GetComponent<Ghost>();
         }
     }

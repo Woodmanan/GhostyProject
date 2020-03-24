@@ -19,9 +19,10 @@ public class Monster : MonoBehaviour
     public bool hitJumpSignal = false;
 
     [SerializeField] private int health;
-    
-    
+
+
     public float speed;
+    [SerializeField] private int damageToPlayer;
     private int accel;
 
     public float horizontal_margin;
@@ -201,8 +202,12 @@ public class Monster : MonoBehaviour
             {
                 inAir = false;
             }
-
-
+            
+        }
+        
+        if (collision.gameObject.CompareTag("Body"))
+        {
+            collision.gameObject.GetComponent<Character>().TakeDamage(damageToPlayer);
         }
 
 
@@ -218,7 +223,7 @@ public class Monster : MonoBehaviour
 
     }
 
-    public void takeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
