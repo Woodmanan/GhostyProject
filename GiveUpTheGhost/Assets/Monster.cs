@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ public class Monster : MonoBehaviour
     public float jumpForce;
     public bool inAir;
     public bool hitJumpSignal = false;
+
+    [SerializeField] private int health;
     
     
     public float speed;
@@ -30,10 +33,12 @@ public class Monster : MonoBehaviour
 
     private GameObject mainCharacterFound;
     private bool characterFound = false;
+    
     void Start()
     {
 
     }
+    
     void Awake()
     {
         thisBody = GetComponent<Rigidbody2D>();
@@ -175,6 +180,7 @@ public class Monster : MonoBehaviour
 
             if (signalSpace.reverse == true)
             {
+                
             }
 
         }
@@ -212,6 +218,24 @@ public class Monster : MonoBehaviour
 
     }
 
-  
+    public void takeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            print("Monster has died!");
+            Destroy(this.gameObject);
+        }
+    }
 
+    private void OnDrawGizmos()
+    {
+        Vector3 rightBound = transform.right * boundary;
+        Vector3 right = transform.position + rightBound;
+        Vector3 left = transform.position - rightBound;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(right, Vector3.one);
+        Gizmos.DrawWireCube(left, Vector3.one);
+        Gizmos.DrawLine(left, right);
+    }
 }

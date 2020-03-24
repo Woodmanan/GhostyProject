@@ -22,6 +22,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/EndLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/CircleController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FollowsPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MonsterSense.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Monster.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Possessable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/db/b173059e/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/EndFightOnTrigger.cs" root0="FORCE_HIGHLIGHTING" />
@@ -52,6 +54,7 @@
         <option value="$PROJECT_DIR$/Assets/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/EndLevel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Monster.cs" />
       </list>
     </option>
   </component>
@@ -125,6 +128,7 @@
       <workItem from="1584404058041" duration="2313000" />
       <workItem from="1584716126953" duration="7869000" />
       <workItem from="1585015325186" duration="1510000" />
+      <workItem from="1585017567361" duration="934000" />
     </task>
     <servers />
   </component>
