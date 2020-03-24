@@ -8768,11 +8768,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 2496522621567278351, guid: 152036f4014005f4aa0f58efb4c7d976,
-        type: 3}
-      propertyPath: jumpForce
-      value: 530
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 152036f4014005f4aa0f58efb4c7d976, type: 3}
 --- !u!1001 &1754899721
