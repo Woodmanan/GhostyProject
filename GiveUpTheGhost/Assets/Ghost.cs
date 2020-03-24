@@ -12,6 +12,7 @@ public class Ghost : MonoBehaviour
     private Character body;
     private Rigidbody2D rigid;
     private CircleController radius;
+    private SpriteRenderer sprite;
 
     void Start()
     {
@@ -24,6 +25,8 @@ public class Ghost : MonoBehaviour
         rigid.simulated = false;
         radius = transform.parent.GetComponentInChildren<CircleController>();
         radius.setRad(body.getDistance());
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.enabled = false;
     }
 
     //Events that need to happen before physics
@@ -58,6 +61,7 @@ public class Ghost : MonoBehaviour
         ghostMode = true;
         rigid.simulated = true;
         joint.enabled = true;
+        sprite.enabled = true;
         StartCoroutine(setGhost(.5f));
     }
 
@@ -76,6 +80,7 @@ public class Ghost : MonoBehaviour
         joint.enabled = false;
         body.ghostMode = false;
         rigid.simulated = false;
+        sprite.enabled = false;
     }
 
     public void disableGhostMode()
@@ -100,15 +105,12 @@ public class Ghost : MonoBehaviour
 
                 if (Input.GetAxisRaw("Horizontal") > 0)
                 {
-                    
-                    SpriteRenderer currentImage = transform.Find("GhostSprite").GetComponent<SpriteRenderer>();
-                    currentImage.flipX = false;
+                    sprite.flipX = false;
                     
                 }
                 else if(Input.GetAxisRaw("Horizontal") < 0)
                 {
-                    SpriteRenderer currentImage = transform.Find("GhostSprite").GetComponent<SpriteRenderer>();
-                    currentImage.flipX = true;
+                    sprite.flipX = true;
 
                 }
 
