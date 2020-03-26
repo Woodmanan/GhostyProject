@@ -703,40 +703,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8410439237523265081, guid: fe479dcfda7f582469720e3e028a7c7e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410439237523265082, guid: fe479dcfda7f582469720e3e028a7c7e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8410439237523265084, guid: fe479dcfda7f582469720e3e028a7c7e,
         type: 3}
       propertyPath: m_Name
       value: Moving Platform (Alpha version) (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410439237523265085, guid: fe479dcfda7f582469720e3e028a7c7e,
-        type: 3}
-      propertyPath: positions.Array.data[0].x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410439237523265085, guid: fe479dcfda7f582469720e3e028a7c7e,
-        type: 3}
-      propertyPath: positions.Array.data[0].y
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410439237523265085, guid: fe479dcfda7f582469720e3e028a7c7e,
-        type: 3}
-      propertyPath: positions.Array.data[1].x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8410439237523265085, guid: fe479dcfda7f582469720e3e028a7c7e,
-        type: 3}
-      propertyPath: positions.Array.data[1].y
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8410439237523265087, guid: fe479dcfda7f582469720e3e028a7c7e,
         type: 3}
@@ -10018,6 +9988,16 @@ PrefabInstance:
         type: 3}
       propertyPath: positions.Array.data[0].x
       value: -7.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410439237523265085, guid: fe479dcfda7f582469720e3e028a7c7e,
+        type: 3}
+      propertyPath: positions.Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410439237523265085, guid: fe479dcfda7f582469720e3e028a7c7e,
+        type: 3}
+      propertyPath: positions.Array.data[1].y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8410439237523265087, guid: fe479dcfda7f582469720e3e028a7c7e,
         type: 3}
