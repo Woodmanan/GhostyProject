@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class BridgeConnector : MonoBehaviour
 {
-    [SerializeField] private float lengthOfBridge;
+    [SerializeField] private float lengthOfBridge = 1;
     private float length;
 
     private GameObject grabPiece;

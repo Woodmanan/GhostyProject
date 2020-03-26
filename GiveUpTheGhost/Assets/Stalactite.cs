@@ -19,6 +19,14 @@ public class Stalactite : MonoBehaviour
     private DistanceJoint2D joint;
     private bool disconnected;
     private bool active;
+
+    private bool falling;
+
+    private Vector3 whereToSpawn;
+    private Quaternion respawnRotation;
+
+    [SerializeField] private bool stayAfterFalling;
+    [SerializeField] private GameObject respawnObject;
     
     // Start is called before the first frame update
     void Start()
@@ -27,6 +35,12 @@ public class Stalactite : MonoBehaviour
         body = GameObject.FindGameObjectWithTag("Body").GetComponent<Character>();
         ghost = GameObject.FindGameObjectWithTag("Ghost").GetComponent<Ghost>();
         possess = GetComponent<Possessable>();
+
+        whereToSpawn = transform.position;
+        respawnRotation = transform.rotation;
+        
+        
+        falling = false;
 
         rig.simulated = false;
 
@@ -63,7 +77,18 @@ public class Stalactite : MonoBehaviour
                         possess.enabled = true;
                         disconnected = true;
                         rig.simulated = true;
-                        GetComponent<Stalactite>().enabled = false;
+                        stopPossession();
+                        if (stayAfterFalling)
+                        {
+                            falling = true;
+                        }
+                        else
+                        {
+                            possess.enabled = false;
+                            GetComponent<Stalactite>().enabled = false;
+                        }
+                        
+                        
                     }
 
                     GetComponent<ParticleSystem>().Emit(100);
@@ -76,14 +101,37 @@ public class Stalactite : MonoBehaviour
     {
         if (disconnected) return;
         possess.enabled = false;
+        StartCoroutine(setActiveAfterTimer(.1f));
+    }
+
+    IEnumerator setActiveAfterTimer(float time)
+    {
+        yield return new WaitForSeconds(time);
         active = true;
     }
-    
+
     public void stopPossession()
     {
         possess.enabled = true;
         possess.stopPossession();
         active = false;
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (falling)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Rigidbody2D>().simulated = false;
+            GetComponent<PolygonCollider2D>().enabled = false;
+            GetComponent<ParticleSystem>().Emit(100);
+        }
+    }
+
+    IEnumerator respawn(float timer)
+    {
+        yield return new WaitForSeconds(timer);
+        Instantiate(respawnObject, whereToSpawn, respawnRotation);
+        Destroy(this.gameObject);
+    }
 }

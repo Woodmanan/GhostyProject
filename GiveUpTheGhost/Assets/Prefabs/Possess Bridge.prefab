@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bcbedd4c37a7254dafa2b6cd92d23dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lengthOfBridge: 0
+  lengthOfBridge: 1
 --- !u!1 &8001779965119455229
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.06784615, y: 0.06707692, z: 0.06707692, w: 0.06707692}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.15384616, y: 0.15384616}
     newSize: {x: 0.5, y: 0.5}
@@ -327,6 +327,8 @@ MonoBehaviour:
   speed: 3
   speedToDamage: 100
   damage: 0
+  enableGravityOnRelease: 1
+  stopVelocityOnRelease: 0
   possessionBegins:
     m_PersistentCalls:
       m_Calls:

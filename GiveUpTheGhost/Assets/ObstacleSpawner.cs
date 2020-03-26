@@ -18,7 +18,7 @@ public class ObstacleSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = timeOffset;
+        timer = -1 * timeOffset;
         if (randomTimeOffset)
         {
             timer += Random.Range(0, delay);

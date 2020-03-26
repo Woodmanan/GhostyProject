@@ -150,6 +150,7 @@ MonoBehaviour:
   speedToDamage: 1
   damage: 2
   enableGravityOnRelease: 1
+  stopVelocityOnRelease: 0
   possessionBegins:
     m_PersistentCalls:
       m_Calls:
@@ -382,7 +383,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
