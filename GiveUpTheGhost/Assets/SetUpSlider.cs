@@ -14,7 +14,7 @@ public class SetUpSlider : MonoBehaviour
         SliderJoint2D slide = GetComponent<SliderJoint2D>();
         slide.useLimits = true;
         slide.connectedAnchor = new Vector2(transform.position.x,  transform.position.y);
-        slide.angle = 90;
+        slide.angle = -90;
         JointTranslationLimits2D lims = new JointTranslationLimits2D();
         lims.max = distanceAbove;
         lims.min = -1 * distanceBelow;
