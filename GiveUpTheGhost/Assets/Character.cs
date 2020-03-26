@@ -40,6 +40,8 @@ public class Character : MonoBehaviour
     [SerializeField] private float jumpRad;
     [SerializeField] private int health;
 
+    private CapsuleCollider2D capsule;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,8 @@ public class Character : MonoBehaviour
         sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         jumpCooldown = 0;
         ghost = GameObject.FindGameObjectWithTag("Ghost").GetComponent<Ghost>();
+        capsule = GetComponent<CapsuleCollider2D>();
+        setFriction(0);
     }
 
     // Update is called once per frame
@@ -72,6 +76,7 @@ public class Character : MonoBehaviour
                     ghost.disableGhostMode();
                     //thisBody.mass = 1f;
                     thisBody.drag = 0;
+                    setFriction(0);
 
                     //Reset position
                     //ghost.transform.localPosition = new Vector3(0, 0, 1);
@@ -84,6 +89,7 @@ public class Character : MonoBehaviour
                 ghost.enableGhostMode();
                 //thisBody.mass = 100f;
                 thisBody.drag = 4f;
+                setFriction(.5f);
 
             }
 
@@ -114,7 +120,7 @@ public class Character : MonoBehaviour
         Debug.DrawRay(transform.position, groundCheck, Color.yellow, groundCheck.magnitude);
         
         //Check for hit!
-        if (hit.collider)
+        if (hit.collider && hit.collider.gameObject.layer.Equals(9))
         {
             return hit.collider.gameObject;
         }
@@ -124,9 +130,15 @@ public class Character : MonoBehaviour
         }
     
     }
-    
-    
 
+
+    public void setFriction(float friction)
+    {
+        friction = Mathf.Clamp(friction, 0, 1);
+        capsule.sharedMaterial.friction = friction;
+        capsule.enabled = false;
+        capsule.enabled = true;
+    }
     
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -224,6 +236,8 @@ public class Character : MonoBehaviour
 
 
     }
+    
+    
 
     public float getDistance()
     {
@@ -262,6 +276,7 @@ public class Character : MonoBehaviour
     private void OnDestroy()
     {
         print("Destroying");
+        setFriction(0);
         //GetComponent<CapsuleCollider2D>().sharedMaterial.friction = 1;
     }
 }

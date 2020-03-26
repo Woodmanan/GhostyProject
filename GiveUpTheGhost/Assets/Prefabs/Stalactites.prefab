@@ -149,6 +149,7 @@ MonoBehaviour:
   speed: 4
   speedToDamage: 1
   damage: 2
+  enableGravityOnRelease: 1
   possessionBegins:
     m_PersistentCalls:
       m_Calls:

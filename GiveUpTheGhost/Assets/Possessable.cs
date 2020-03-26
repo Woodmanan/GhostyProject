@@ -26,8 +26,10 @@ public class Possessable : MonoBehaviour
     private Character body;
     private Ghost ghost;
     private DistanceJoint2D joint;
-    
-    
+
+    [SerializeField] private bool enableGravityOnRelease = true;
+    [SerializeField] private bool stopVelocityOnRelease = false;
+
     //Event for possession start
     public UnityEvent possessionBegins;
     
@@ -159,7 +161,15 @@ public class Possessable : MonoBehaviour
         ghost.GetComponent<Rigidbody2D>().position = rig.position;
         this.possessed = false;
         joint.enabled = false;
-        rig.gravityScale = 1;
+        if (enableGravityOnRelease)
+        {
+            rig.gravityScale = 1;
+        }
+
+        if (stopVelocityOnRelease)
+        {
+            rig.velocity = Vector2.zero;
+        }
     }
 
     private void OnDrawGizmos()

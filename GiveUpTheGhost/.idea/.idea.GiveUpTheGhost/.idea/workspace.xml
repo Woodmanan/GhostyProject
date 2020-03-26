@@ -47,14 +47,15 @@
         <option value="$PROJECT_DIR$/Assets/EndFightOnTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Shield.cs" />
         <option value="$PROJECT_DIR$/Assets/FallingDamage.cs" />
-        <option value="$PROJECT_DIR$/Assets/ObstacleSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/PlatformMover.cs" />
-        <option value="$PROJECT_DIR$/Assets/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/EndLevel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Possessable.cs" />
         <option value="$PROJECT_DIR$/Assets/Monster.cs" />
         <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Ghost.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlatformMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/ObstacleSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/Possessable.cs" />
+        <option value="$PROJECT_DIR$/Assets/StopPlayerGrav.cs" />
       </list>
     </option>
   </component>
@@ -131,6 +132,8 @@
       <workItem from="1585017567361" duration="1013000" />
       <workItem from="1585018667639" duration="582000" />
       <workItem from="1585019777428" duration="877000" />
+      <workItem from="1585021458231" duration="960000" />
+      <workItem from="1585232777740" duration="4575000" />
     </task>
     <servers />
   </component>

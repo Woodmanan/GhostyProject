@@ -65,10 +65,10 @@ public class PlatformMover : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (EditorApplication.isPlaying)
+        /*if (EditorApplication.isPlaying)
         {
             return;
-        }
+        }*/
         if (positions.Length < 2)
         {
             Gizmos.color = Color.red;
@@ -100,6 +100,15 @@ public class PlatformMover : MonoBehaviour
         if (other.gameObject.CompareTag("Body"))
         {
             Rigidbody2D rig = other.gameObject.GetComponent<Rigidbody2D>();
+            other.transform.SetParent(transform, true);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Body"))
+        {
+            other.transform.SetParent(null);
         }
     }
 }
