@@ -80,12 +80,12 @@ public class Stalactite : MonoBehaviour
                         stopPossession();
                         if (stayAfterFalling)
                         {
-                            falling = true;
+                            GetComponent<Stalactite>().enabled = false;
                         }
                         else
                         {
                             possess.enabled = false;
-                            GetComponent<Stalactite>().enabled = false;
+                            StartCoroutine(setFallingAfterTimer(.2f));
                         }
                         
                         
@@ -109,6 +109,13 @@ public class Stalactite : MonoBehaviour
         yield return new WaitForSeconds(time);
         active = true;
     }
+    
+    IEnumerator setFallingAfterTimer(float time)
+    {
+        yield return new WaitForSeconds(time);
+        falling = true;
+    }
+    
 
     public void stopPossession()
     {
@@ -119,12 +126,14 @@ public class Stalactite : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        
         if (falling)
         {
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Rigidbody2D>().simulated = false;
             GetComponent<PolygonCollider2D>().enabled = false;
             GetComponent<ParticleSystem>().Emit(100);
+            StartCoroutine(respawn(.2f));
         }
     }
 

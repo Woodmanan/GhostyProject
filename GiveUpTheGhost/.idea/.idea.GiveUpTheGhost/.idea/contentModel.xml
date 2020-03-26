@@ -23,6 +23,7 @@
         <e p="ObstacleSpawner.cs" t="Include" />
         <e p="PlatformMover.cs" t="Include" />
         <e p="Possessable.cs" t="Include" />
+        <e p="SetUpSlider.cs" t="Include" />
         <e p="Shaders" t="Include">
           <e p="Darkness.shader" t="Include" />
           <e p="GhostCircle.shader" t="Include" />

@@ -73,8 +73,6 @@ public class Possessable : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && ghost.ghostMode)
             {
-                print("Checking!");
-                print("Distance: " + Vector2.Distance(transform.position, ghost.transform.position));
                 if (Vector2.Distance(transform.position, ghost.transform.position) < distToPossess)
                 {
                     //Do the expensive check now

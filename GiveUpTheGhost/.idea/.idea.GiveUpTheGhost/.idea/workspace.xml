@@ -29,6 +29,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/EndFightOnTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Character.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/BossfightControls.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SetUpSlider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Ghost.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/AreaSignal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shield.cs" root0="FORCE_HIGHLIGHTING" />
@@ -51,11 +52,12 @@
         <option value="$PROJECT_DIR$/Assets/Ghost.cs" />
         <option value="$PROJECT_DIR$/Assets/PlatformMover.cs" />
         <option value="$PROJECT_DIR$/Assets/Character.cs" />
-        <option value="$PROJECT_DIR$/Assets/Possessable.cs" />
         <option value="$PROJECT_DIR$/Assets/StopPlayerGrav.cs" />
         <option value="$PROJECT_DIR$/Assets/ObstacleSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Stalactite.cs" />
         <option value="$PROJECT_DIR$/Assets/BridgeConnector.cs" />
+        <option value="$PROJECT_DIR$/Assets/Possessable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Stalactite.cs" />
+        <option value="$PROJECT_DIR$/Assets/SetUpSlider.cs" />
       </list>
     </option>
   </component>
@@ -137,6 +139,7 @@
       <workItem from="1585260286533" duration="1130000" />
       <workItem from="1585261904963" duration="2044000" />
       <workItem from="1585264045344" duration="32000" />
+      <workItem from="1585264249818" duration="1076000" />
     </task>
     <servers />
   </component>

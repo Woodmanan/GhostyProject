@@ -227,6 +227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tugs: 3
   delay: 0.3
+  stayAfterFalling: 1
+  respawnObject: {fileID: 5030195058094239944}
 --- !u!232 &137382279288428878
 DistanceJoint2D:
   m_ObjectHideFlags: 0
