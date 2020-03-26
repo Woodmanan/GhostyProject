@@ -56,8 +56,8 @@
         <option value="$PROJECT_DIR$/Assets/ObstacleSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/BridgeConnector.cs" />
         <option value="$PROJECT_DIR$/Assets/Possessable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Stalactite.cs" />
         <option value="$PROJECT_DIR$/Assets/SetUpSlider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Stalactite.cs" />
       </list>
     </option>
   </component>
@@ -140,6 +140,7 @@
       <workItem from="1585261904963" duration="2044000" />
       <workItem from="1585264045344" duration="32000" />
       <workItem from="1585264249818" duration="1076000" />
+      <workItem from="1585265855300" duration="899000" />
     </task>
     <servers />
   </component>

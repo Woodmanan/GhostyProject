@@ -26,8 +26,7 @@ public class Stalactite : MonoBehaviour
     private Quaternion respawnRotation;
 
     [SerializeField] private bool stayAfterFalling;
-    [SerializeField] private GameObject respawnObject;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -133,14 +132,29 @@ public class Stalactite : MonoBehaviour
             GetComponent<Rigidbody2D>().simulated = false;
             GetComponent<PolygonCollider2D>().enabled = false;
             GetComponent<ParticleSystem>().Emit(100);
+            falling = false;
             StartCoroutine(respawn(.2f));
         }
     }
 
     IEnumerator respawn(float timer)
     {
+        print("We're respawning!");
         yield return new WaitForSeconds(timer);
-        Instantiate(respawnObject, whereToSpawn, respawnRotation);
-        Destroy(this.gameObject);
+        transform.position = whereToSpawn;
+        transform.rotation = respawnRotation;
+
+        print("Respawned!");
+
+        possess.enabled = true;
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<Rigidbody2D>().simulated = true;
+        GetComponent<Rigidbody2D>().gravityScale = 0;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<PolygonCollider2D>().enabled = true;
+
+        Start();
+        
+        tugs = 3;
     }
 }
