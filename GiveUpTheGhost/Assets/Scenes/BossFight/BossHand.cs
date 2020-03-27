@@ -20,14 +20,20 @@ public class BossHand : MonoBehaviour
 
         Vector2 zero = new Vector2(Mathf.Sin(30*Mathf.Deg2Rad), Mathf.Sin(30*Mathf.Deg2Rad));
         Vector2 one = new Vector2(Mathf.Sin(45 * Mathf.Deg2Rad), Mathf.Sin(45 * Mathf.Deg2Rad));
-        Vector2 two = new Vector2(Mathf.Sin(45 * Mathf.Deg2Rad), Mathf.Sin(45 * Mathf.Deg2Rad));
+        Vector2 two = new Vector2(Mathf.Sin(60 * Mathf.Deg2Rad), Mathf.Sin(60 * Mathf.Deg2Rad));
+        Vector2 three = new Vector2(Mathf.Sin(120 * Mathf.Deg2Rad), Mathf.Sin(120 * Mathf.Deg2Rad));
+        Vector2 four = new Vector2(Mathf.Sin(135 * Mathf.Deg2Rad), Mathf.Sin(135 * Mathf.Deg2Rad));
+        Vector2 five = new Vector2(Mathf.Sin(150 * Mathf.Deg2Rad), Mathf.Sin(150 * Mathf.Deg2Rad));
 
         currentBody.velocity = new Vector2(0, -1);
         
         angles = new Dictionary<int, Vector2>{
             {0,  zero},
             {1, one},
-            {2, two }
+            {2, two },
+            {3,  three},
+            {4, four},
+            {5, five}
              };
     }
 
