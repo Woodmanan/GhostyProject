@@ -11,7 +11,7 @@ public class FollowsPlayer : MonoBehaviour
     [SerializeField] private float endX;
     private Vector2 yz;
     [SerializeField] private float lerpAmount;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,8 +49,11 @@ public class FollowsPlayer : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Camera cam = Camera.main;
+        float halfWidth = cam.orthographicSize * cam.aspect * 2;
+        
         Vector3 center = new Vector3((startX + endX) / 2, transform.position.y, 0);
-        Vector3 dimensions = new Vector3(Mathf.Abs(startX - endX), 10, 1);
+        Vector3 dimensions = new Vector3(Mathf.Abs(startX - endX) + halfWidth, 10, 1);
         Gizmos.color = Color.grey;
         Gizmos.DrawWireCube(center, dimensions);
     }
