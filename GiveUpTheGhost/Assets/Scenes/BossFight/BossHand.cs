@@ -19,10 +19,10 @@ public class BossHand : MonoBehaviour
         rightBoundary = transform.localPosition.y + transform.parent.gameObject.GetComponent<Boss>().armsRange;
 
         Vector2 zero = new Vector2(Mathf.Sin(30*Mathf.Deg2Rad), Mathf.Sin(30*Mathf.Deg2Rad));
-        Vector2 one = new Vector2(Mathf.Sin(60 * Mathf.Deg2Rad), Mathf.Sin(45 * Mathf.Deg2Rad));
-        Vector2 two = new Vector2(Mathf.Sin(85 * Mathf.Deg2Rad), Mathf.Sin(60 * Mathf.Deg2Rad));
+        Vector2 one = new Vector2(Mathf.Sin(45 * Mathf.Deg2Rad), Mathf.Sin(45 * Mathf.Deg2Rad));
+        Vector2 two = new Vector2(Mathf.Sin(45 * Mathf.Deg2Rad), Mathf.Sin(45 * Mathf.Deg2Rad));
 
-        currentBody.velocity = new Vector2(0, 1);
+        currentBody.velocity = new Vector2(0, -1);
         
         angles = new Dictionary<int, Vector2>{
             {0,  zero},

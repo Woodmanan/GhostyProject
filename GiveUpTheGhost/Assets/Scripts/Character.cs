@@ -31,7 +31,7 @@ public class Character : MonoBehaviour
     private SpriteRenderer sprite;
 
 
-    private List<string> floors = new List<string>() { "Floor", "Platform"};
+    private List<string> floors = new List<string>() { "Floor", "Platform", "RightHand", "LeftHand"};
 
     private Ghost ghost;
 
@@ -162,7 +162,7 @@ public class Character : MonoBehaviour
         
         //Check for hit!
         if (hit.collider)
-        {
+        {   
             print("It's on the ground!");
             grounded = true;
             return true;
