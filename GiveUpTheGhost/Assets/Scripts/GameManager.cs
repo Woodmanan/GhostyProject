@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     //Character objects we need
     private Character body;
     private Ghost ghost;
+    private Vector3 respawnPoint;
+    private float lives;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,11 @@ public class GameManager : MonoBehaviour
         {
             body = bodytmp.GetComponent<Character>();
             ghost = body.transform.GetChild(2).GetComponent<Ghost>();
+            lives = 3;
+            respawnPoint = body.transform.position;
         }
+
+        
     }
 
     // Update is called once per frame
@@ -56,6 +62,22 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Respawn()
+    {
+        lives--;
+        if (lives == 0)
+        {
+            RestartLevel();
+        }
+
+        body.transform.position = new Vector3(respawnPoint.x, respawnPoint.y, body.transform.position.z);
+    }
+
+    public void setCheckpoint(Vector3 position)
+    {
+        respawnPoint = position;
+    }
+
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -64,5 +86,10 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ping()
+    {
+        print("Ping!");
     }
 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5464463592863686097}
   - component: {fileID: 4607854605421700063}
   - component: {fileID: 2420318690318726701}
-  - component: {fileID: 3940987639085440038}
   - component: {fileID: 3488989317188141033}
   - component: {fileID: 9144987648320012635}
   - component: {fileID: 2070017912339654682}
@@ -110,26 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &3940987639085440038
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5030195058094239944}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0.25, y: -0.25}
-  - {x: 0, y: 0.25}
-  - {x: -0.25, y: -0.25}
-  - {x: 0.25, y: -0.25}
 --- !u!114 &3488989317188141033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +128,8 @@ MonoBehaviour:
   speed: 4
   speedToDamage: 1
   damage: 2
+  enableGravityOnRelease: 1
+  stopVelocityOnRelease: 0
   possessionBegins:
     m_PersistentCalls:
       m_Calls:
@@ -225,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tugs: 3
   delay: 0.3
+  stayAfterFalling: 0
 --- !u!232 &137382279288428878
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -381,7 +363,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
