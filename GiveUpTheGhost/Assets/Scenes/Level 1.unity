@@ -1240,8 +1240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be3210e7830e46499de41bd904fb7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startX: 3.79
-  endX: 42.52
+  startX: 1.62
+  endX: 45
   lerpAmount: 0.1
 --- !u!1 &1146121709
 GameObject:
