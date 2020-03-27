@@ -424,6 +424,12 @@ PrefabInstance:
       propertyPath: positions.Array.data[1].y
       value: 2.4
       objectReference: {fileID: 0}
+    - target: {fileID: 8410439237523265086, guid: fe479dcfda7f582469720e3e028a7c7e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6446db0a33d923649a7fe70de25db9c0,
+        type: 3}
     - target: {fileID: 8410439237523265087, guid: fe479dcfda7f582469720e3e028a7c7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12089,6 +12095,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform (Alpha version) (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8410439237523265086, guid: fe479dcfda7f582469720e3e028a7c7e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6446db0a33d923649a7fe70de25db9c0,
+        type: 3}
     - target: {fileID: 8410439237523265087, guid: fe479dcfda7f582469720e3e028a7c7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12790,11 +12802,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: End Of Level
-      objectReference: {fileID: 0}
-    - target: {fileID: 3527921708282096948, guid: 65a87312b9fa20241944aac23bf2c1e7,
-        type: 3}
-      propertyPath: m_UsedByEffector
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3527921708282096950, guid: 65a87312b9fa20241944aac23bf2c1e7,
         type: 3}
@@ -13881,6 +13888,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform (Alpha version)
       objectReference: {fileID: 0}
+    - target: {fileID: 8410439237523265086, guid: fe479dcfda7f582469720e3e028a7c7e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6446db0a33d923649a7fe70de25db9c0,
+        type: 3}
     - target: {fileID: 8410439237523265087, guid: fe479dcfda7f582469720e3e028a7c7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14754,6 +14767,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Platform (Alpha version) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8410439237523265086, guid: fe479dcfda7f582469720e3e028a7c7e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6446db0a33d923649a7fe70de25db9c0,
+        type: 3}
     - target: {fileID: 8410439237523265087, guid: fe479dcfda7f582469720e3e028a7c7e,
         type: 3}
       propertyPath: m_LocalPosition.x
