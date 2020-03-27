@@ -13328,8 +13328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be3210e7830e46499de41bd904fb7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startX: -0.5
-  endX: 59
+  startX: -0
+  endX: 56.69
   lerpAmount: 0.1
 --- !u!1 &1400362668
 GameObject:
