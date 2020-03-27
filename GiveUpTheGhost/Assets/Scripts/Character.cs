@@ -262,6 +262,7 @@ public class Character : MonoBehaviour
     private void Die()
     {
         GameManager.instance.Respawn();
+        health = 3;
     }
 
     public void TakeDamage(int dmg)

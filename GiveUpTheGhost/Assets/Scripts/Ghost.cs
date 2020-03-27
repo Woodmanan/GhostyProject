@@ -95,6 +95,10 @@ public class Ghost : MonoBehaviour
         if (ghostMode)
         {
             Vector2 vel = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            if (vel.magnitude > 1)
+            {
+                vel = vel.normalized;
+            }
             rigid.velocity = vel * speed;
             
             if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)

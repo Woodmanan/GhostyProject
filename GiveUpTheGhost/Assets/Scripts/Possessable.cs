@@ -61,6 +61,10 @@ public class Possessable : MonoBehaviour
         if (possessed)
         {
             Vector2 offset = new Vector2(Input.GetAxis(horizontalAxis), Input.GetAxis(verticalAxis));
+            if (offset.magnitude > 1)
+            {
+                offset = offset.normalized;
+            }
             //target += offset;
             rig.velocity = offset * speed;
             

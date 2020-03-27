@@ -229,8 +229,8 @@ MonoBehaviour:
   possessed: 0
   distToPossess: 0.23
   speed: 4
-  speedToDamage: 1
-  damage: 2
+  speedToDamage: 3
+  damage: 4
   enableGravityOnRelease: 1
   stopVelocityOnRelease: 0
   possessionBegins:
