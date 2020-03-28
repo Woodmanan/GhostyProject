@@ -8,7 +8,8 @@ public class BossHand : MonoBehaviour
     private bool possessed = false;
     Rigidbody2D currentBody;
     public bool isLeftHand;
-    private double speed = 300;
+    private double speed = 1;
+    private double maxspeed = 300;
     double currentDirectionDegrees;
     private double leftBoundary;
     private double rightBoundary;
@@ -16,12 +17,19 @@ public class BossHand : MonoBehaviour
 
     private Transform ghost;
     private Vector2 lastVelocity;
+    private Vector2 currVelocity;
     private bool checkForPress = false;
+    private double possessionTime = 0;
+    private double possessionLimit = 5;
+    private double lastPossession = 100;
+
+    private bool isUnderCharacter = false;
+    private PhysicsMaterial2D currentMaterial;
     void Start()
     {
         currentBody = transform.gameObject.GetComponent<Rigidbody2D>();
-        leftBoundary = transform.localPosition.x + transform.parent.gameObject.GetComponent<Boss>().armsRange * -1;
-        rightBoundary = transform.localPosition.y + transform.parent.gameObject.GetComponent<Boss>().armsRange;
+        currentMaterial = currentBody.sharedMaterial;
+
 
         Vector2 zero = new Vector2(Mathf.Sin(30*Mathf.Deg2Rad), Mathf.Sin(30*Mathf.Deg2Rad));
         Vector2 one = new Vector2(Mathf.Sin(45 * Mathf.Deg2Rad), Mathf.Sin(45 * Mathf.Deg2Rad));
@@ -30,7 +38,7 @@ public class BossHand : MonoBehaviour
         Vector2 four = new Vector2(Mathf.Sin(135 * Mathf.Deg2Rad), Mathf.Sin(135 * Mathf.Deg2Rad));
         Vector2 five = new Vector2(Mathf.Sin(150 * Mathf.Deg2Rad), Mathf.Sin(150 * Mathf.Deg2Rad));
 
-        currentBody.velocity = new Vector2(0, -1);
+        currVelocity = new Vector2(0, -1);
         
         angles = new Dictionary<int, Vector2>{
             {0,  zero},
@@ -47,17 +55,18 @@ public class BossHand : MonoBehaviour
     {
         if (possessed == false)
         {
-            currentBody.velocity = currentBody.velocity.normalized * (float)speed * Time.deltaTime;
+
+            currentBody.transform.Translate(currVelocity * (float)speed * Time.deltaTime);
         }
         
         if (possessed)
         {
-            Debug.Log("Possessed");
             transform.position = ghost.position;
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 possessed = false;
-                currentBody.velocity = lastVelocity;
+                
+
             }
         }
     }
@@ -66,47 +75,50 @@ public class BossHand : MonoBehaviour
     {
         if (possessed == false)
         {
-            if (collision.collider.name != "LeftHand" || collision.collider.name != "Character")
-            {
-                if (Random.Range(0, 3) > 1.5)
-                {
-                    currentBody.velocity = angles[Random.Range(0, 5)] * -1;
-
-                }
-                if (Random.Range(0, 3) < 1.5)
-                {
-                    currentBody.velocity = angles[Random.Range(0, 5)];
-
-                }
-
-
-            }
-            else
-            {
-                Debug.Log("Not on the ground");
-            }
+            
+            
         }
 
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+       
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (possessed == false)
+        {
+            if (collision.collider.name == "Character")
+            {
+
+                speed = maxspeed;
+            }
+        }
+    }
    
     private void OnTriggerStay2D(Collider2D trigger)
     {
         if (trigger.name == "Ghost")
         {
-
-            if (trigger.gameObject.GetComponent<Ghost>().ghostMode == true)
+            if (possessed == false)
             {
-                if (Input.GetKeyDown(KeyCode.LeftShift))
+                if (trigger.gameObject.GetComponent<Ghost>().ghostMode == true)
                 {
-                    lastVelocity = currentBody.velocity;
-                    currentBody.velocity = new Vector2(0, 0);
-                    possessed = true;
-                    ghost = trigger.transform;
+                    if (Input.GetKeyDown(KeyCode.LeftShift))
+                    {
+                        speed = 0;
+                        possessed = true;
+                        ghost = trigger.transform;
+
+                        
+                    }
 
                 }
-
             }
         }
     }
+
+    
 }
