@@ -14,7 +14,7 @@ public class BossHand : MonoBehaviour
     private double rightBoundary;
     private Dictionary<int, Vector2> angles;
 
-   
+    private Transform ghost;
     private Vector2 lastVelocity;
     private bool checkForPress = false;
     void Start()
@@ -53,6 +53,7 @@ public class BossHand : MonoBehaviour
         if (possessed)
         {
             Debug.Log("Possessed");
+            transform.position = ghost.position;
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 possessed = false;
@@ -101,6 +102,8 @@ public class BossHand : MonoBehaviour
                     lastVelocity = currentBody.velocity;
                     currentBody.velocity = new Vector2(0, 0);
                     possessed = true;
+                    ghost = trigger.transform;
+
                 }
 
             }
