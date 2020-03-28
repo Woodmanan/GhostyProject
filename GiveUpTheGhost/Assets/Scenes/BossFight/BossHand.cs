@@ -65,9 +65,8 @@ public class BossHand : MonoBehaviour
     {
         if (possessed == false)
         {
-            if (collision.collider.name != "LeftHand")
+            if (collision.collider.name != "LeftHand" || collision.collider.name != "Character")
             {
-                Debug.Log("Hit the Character");
                 if (Random.Range(0, 3) > 1.5)
                 {
                     currentBody.velocity = angles[Random.Range(0, 5)] * -1;
