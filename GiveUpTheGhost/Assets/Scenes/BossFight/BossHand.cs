@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossHand : MonoBehaviour
 {
     // Start is called before the first frame update
+    private bool possessed = false;
     Rigidbody2D currentBody;
     public bool isLeftHand;
     private double speed = 300;
@@ -12,6 +13,10 @@ public class BossHand : MonoBehaviour
     private double leftBoundary;
     private double rightBoundary;
     private Dictionary<int, Vector2> angles;
+
+   
+    private Vector2 lastVelocity;
+    private bool checkForPress = false;
     void Start()
     {
         currentBody = transform.gameObject.GetComponent<Rigidbody2D>();
@@ -40,31 +45,66 @@ public class BossHand : MonoBehaviour
     
     void FixedUpdate()
     {
-        currentBody.velocity = currentBody.velocity.normalized * (float)speed * Time.deltaTime;
+        if (possessed == false)
+        {
+            currentBody.velocity = currentBody.velocity.normalized * (float)speed * Time.deltaTime;
+        }
+        
+        if (possessed)
+        {
+            Debug.Log("Possessed");
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                possessed = false;
+                currentBody.velocity = lastVelocity;
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.name != "LeftHand")
+        if (possessed == false)
         {
-            Debug.Log("Hit the Character");
-            if (Random.Range(0,3) > 1.5)
+            if (collision.collider.name != "LeftHand")
             {
-                currentBody.velocity = angles[Random.Range(0, 2)]*-1;
+                Debug.Log("Hit the Character");
+                if (Random.Range(0, 3) > 1.5)
+                {
+                    currentBody.velocity = angles[Random.Range(0, 5)] * -1;
+
+                }
+                if (Random.Range(0, 3) < 1.5)
+                {
+                    currentBody.velocity = angles[Random.Range(0, 5)];
+
+                }
+
 
             }
-            if (Random.Range(0, 3) < 1.5)
+            else
             {
-                currentBody.velocity = angles[Random.Range(0, 2)];
+                Debug.Log("Not on the ground");
+            }
+        }
+
+    }
+
+   
+    private void OnTriggerStay2D(Collider2D trigger)
+    {
+        if (trigger.name == "Ghost")
+        {
+
+            if (trigger.gameObject.GetComponent<Ghost>().ghostMode == true)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    lastVelocity = currentBody.velocity;
+                    currentBody.velocity = new Vector2(0, 0);
+                    possessed = true;
+                }
 
             }
-
-
         }
-        else
-        {
-            Debug.Log("Not on the ground");
-        }
-
     }
 }
