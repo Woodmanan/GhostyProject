@@ -858,7 +858,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285404466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4, y: -2.5999997, z: 1}
+  m_LocalPosition: {x: 3.28, y: -2.5999997, z: 1}
   m_LocalScale: {x: 5.9436545, y: 5.9436545, z: 5.9436545}
   m_Children:
   - {fileID: 225883459}
@@ -924,7 +924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5a1045306ce4b46b19e7232a247151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLeftHand: 0
 --- !u!1 &1652614988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5a1045306ce4b46b19e7232a247151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLeftHand: 0
 --- !u!61 &1711677711
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1089,7 +1087,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1711677708}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0

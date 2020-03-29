@@ -55,8 +55,8 @@ public class BossHand : MonoBehaviour
             {
                 possessed = false;
                 possessionTimer = .01;
-                currentBody.velocity = lastVelocity;
-
+                currentBody.velocity = new Vector2(0,-1);
+                
             }
 
             if (GhostInside == true)
@@ -79,6 +79,18 @@ public class BossHand : MonoBehaviour
                 }
             }
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            if (possessed == true)
+            {
+                possessed = false;
+                possessionTimer = .01;
+                currentBody.velocity = new Vector2(0,-1);
+
+            }
         }
     }
     void FixedUpdate()
@@ -111,7 +123,7 @@ public class BossHand : MonoBehaviour
     {
         if (possessed == false)
         {
-            if (collision.collider.name != "LeftHand" || collision.collider.name != "Character")
+            if (collision.collider.name != "Character")
             {
                 if (Random.Range(0, 3) > 1.5)
                 {
@@ -132,9 +144,30 @@ public class BossHand : MonoBehaviour
             }
         }
 
+        if (collision.collider.name == "Character")
+        {
+            if (collision.collider.transform.position.y - currentBody.transform.position.y > 0)
+            {
+                Debug.Log("CharacterIsHere");
+                currentBody.velocity = new Vector2(0, 0);
+
+            }
+        }
+
     }
 
-   
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.name == "Character")
+        {
+
+            currentBody.velocity = new Vector2(0, 1);
+        }
+    }
+
+
+
+
     private void OnTriggerEnter2D(Collider2D trigger)
     {
         if (trigger.name == "Ghost")
