@@ -8,7 +8,6 @@ public class Boss : MonoBehaviour
     private bool isAlive = true;
     
     
-    public double armsRange = 2;
     void Start()
     {
         
