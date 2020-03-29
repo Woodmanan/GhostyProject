@@ -23,12 +23,12 @@ public class BossHand : MonoBehaviour
     {
         currentBody = transform.gameObject.GetComponent<Rigidbody2D>();
      
-        Vector2 zero = new Vector2(Mathf.Sin(30*Mathf.Deg2Rad), Mathf.Sin(30*Mathf.Deg2Rad));
-        Vector2 one = new Vector2(Mathf.Sin(45 * Mathf.Deg2Rad), Mathf.Sin(45 * Mathf.Deg2Rad));
-        Vector2 two = new Vector2(Mathf.Sin(60 * Mathf.Deg2Rad), Mathf.Sin(60 * Mathf.Deg2Rad));
-        Vector2 three = new Vector2(Mathf.Sin(120 * Mathf.Deg2Rad), Mathf.Sin(120 * Mathf.Deg2Rad));
-        Vector2 four = new Vector2(Mathf.Sin(135 * Mathf.Deg2Rad), Mathf.Sin(135 * Mathf.Deg2Rad));
-        Vector2 five = new Vector2(Mathf.Sin(150 * Mathf.Deg2Rad), Mathf.Sin(150 * Mathf.Deg2Rad));
+        Vector2 zero = new Vector2(Mathf.Cos(30*Mathf.Deg2Rad), Mathf.Sin(30*Mathf.Deg2Rad));
+        Vector2 one = new Vector2(Mathf.Cos(45 * Mathf.Deg2Rad), Mathf.Sin(45 * Mathf.Deg2Rad));
+        Vector2 two = new Vector2(Mathf.Cos(60 * Mathf.Deg2Rad), Mathf.Sin(60 * Mathf.Deg2Rad));
+        Vector2 three = new Vector2(Mathf.Cos(120 * Mathf.Deg2Rad), Mathf.Sin(120 * Mathf.Deg2Rad));
+        Vector2 four = new Vector2(Mathf.Cos(135 * Mathf.Deg2Rad), Mathf.Sin(135 * Mathf.Deg2Rad));
+        Vector2 five = new Vector2(Mathf.Cos(150 * Mathf.Deg2Rad), Mathf.Sin(150 * Mathf.Deg2Rad));
 
         currentBody.velocity = new Vector2(Random.Range(-1,1), -1);
         
