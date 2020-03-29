@@ -7,16 +7,21 @@ public class BossHand : MonoBehaviour
     // Start is called before the first frame update
     private bool possessed = false;
     Rigidbody2D currentBody;
-    public bool isLeftHand;
+
     private double speed = 300;
     double currentDirectionDegrees;
     private double leftBoundary;
     private double rightBoundary;
     private Dictionary<int, Vector2> angles;
 
+    private double possessionDelay = 2;
+    private double possessionTimer = 0;
     private Transform ghost;
+    private bool GhostInside = false;
     private Vector2 lastVelocity;
     private bool checkForPress = false;
+
+    private int numPresses = 0;
     void Start()
     {
         currentBody = transform.gameObject.GetComponent<Rigidbody2D>();
@@ -42,24 +47,64 @@ public class BossHand : MonoBehaviour
              };
     }
 
-    
-    void FixedUpdate()
+    void Update()
     {
-        if (possessed == false)
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            currentBody.velocity = currentBody.velocity.normalized * (float)speed * Time.deltaTime;
-        }
-        
-        if (possessed)
-        {
-            Debug.Log("Possessed");
-            transform.position = ghost.position;
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (possessed == true)
             {
                 possessed = false;
+                possessionTimer = .01;
                 currentBody.velocity = lastVelocity;
+
+            }
+
+            if (GhostInside == true)
+            {
+                numPresses += 1;
+                Debug.Log("Pressed On Time" + numPresses.ToString());
+                if (ghost.gameObject.GetComponent<Ghost>().ghostMode == true)
+                {
+                    if (possessionTimer == 0)
+                    {
+
+                        lastVelocity = currentBody.velocity;
+                        currentBody.velocity = new Vector2(0, 0);
+                        possessed = true;
+
+
+
+                    }
+
+                }
+            }
+
+        }
+    }
+    void FixedUpdate()
+    {
+       
+        if (possessed)
+        {
+            transform.position = ghost.position;
+            
+        }
+        else
+        {
+            
+            currentBody.velocity = currentBody.velocity.normalized * (float)speed * Time.deltaTime;
+        }
+
+        if (possessionTimer >= .01)
+        {
+            possessionTimer += Time.deltaTime;
+            if (possessionTimer > possessionDelay)
+            {
+                possessionTimer = 0;
             }
         }
+
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -90,23 +135,22 @@ public class BossHand : MonoBehaviour
     }
 
    
-    private void OnTriggerStay2D(Collider2D trigger)
+    private void OnTriggerEnter2D(Collider2D trigger)
     {
         if (trigger.name == "Ghost")
         {
-
-            if (trigger.gameObject.GetComponent<Ghost>().ghostMode == true)
-            {
-                if (Input.GetKeyDown(KeyCode.LeftShift))
-                {
-                    lastVelocity = currentBody.velocity;
-                    currentBody.velocity = new Vector2(0, 0);
-                    possessed = true;
-                    ghost = trigger.transform;
-
-                }
-
-            }
+            ghost = trigger.transform;
+            GhostInside = true;
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D trigger)
+    {
+
+        if (trigger.name == "Ghost")
+        {
+            GhostInside = false;
+        }
+
     }
 }
