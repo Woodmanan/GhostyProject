@@ -17,28 +17,38 @@ public class BossHand : MonoBehaviour
     private bool GhostInside = false;
     private Vector2 lastVelocity;
     private bool checkForPress = false;
-
+    public AreaSignal Left;
+    public AreaSignal Right;
+   
     private int numPresses = 0;
     void Start()
     {
         currentBody = transform.gameObject.GetComponent<Rigidbody2D>();
-     
-        Vector2 zero = new Vector2(Mathf.Cos(30*Mathf.Deg2Rad), Mathf.Sin(30*Mathf.Deg2Rad));
+
+        Vector2 zero = new Vector2(Mathf.Cos(30 * Mathf.Deg2Rad), Mathf.Sin(30 * Mathf.Deg2Rad));
         Vector2 one = new Vector2(Mathf.Cos(45 * Mathf.Deg2Rad), Mathf.Sin(45 * Mathf.Deg2Rad));
         Vector2 two = new Vector2(Mathf.Cos(60 * Mathf.Deg2Rad), Mathf.Sin(60 * Mathf.Deg2Rad));
         Vector2 three = new Vector2(Mathf.Cos(120 * Mathf.Deg2Rad), Mathf.Sin(120 * Mathf.Deg2Rad));
         Vector2 four = new Vector2(Mathf.Cos(135 * Mathf.Deg2Rad), Mathf.Sin(135 * Mathf.Deg2Rad));
         Vector2 five = new Vector2(Mathf.Cos(150 * Mathf.Deg2Rad), Mathf.Sin(150 * Mathf.Deg2Rad));
+        Vector2 right = new Vector2(Mathf.Cos(0 * Mathf.Deg2Rad), Mathf.Sin(0 * Mathf.Deg2Rad));
+        Vector2 left = new Vector2(Mathf.Cos(180 * Mathf.Deg2Rad), Mathf.Sin(180 * Mathf.Deg2Rad));
+        Vector2 up = new Vector2(Mathf.Cos(90 * Mathf.Deg2Rad), Mathf.Sin(90 * Mathf.Deg2Rad));
+        Vector2 down = new Vector2(Mathf.Cos(270 * Mathf.Deg2Rad), Mathf.Sin(270 * Mathf.Deg2Rad));
 
-        currentBody.velocity = new Vector2(Random.Range(-1,1), -1);
-        
+        currentBody.velocity = new Vector2(Random.Range(-1, 1), -1);
+
         angles = new Dictionary<int, Vector2>{
             {0,  zero},
             {1, one},
             {2, two },
             {3,  three},
             {4, four},
-            {5, five}
+            {5, five},
+            {6, right},
+            {7, left},
+            {8, up},
+            {9, down}
              };
     }
 
@@ -50,8 +60,8 @@ public class BossHand : MonoBehaviour
             {
                 possessed = false;
                 possessionTimer = .01;
-                currentBody.velocity = new Vector2(0,-1);
-                
+                currentBody.velocity = new Vector2(0, -1);
+
             }
 
             if (GhostInside == true)
@@ -83,22 +93,22 @@ public class BossHand : MonoBehaviour
             {
                 possessed = false;
                 possessionTimer = .01;
-                currentBody.velocity = new Vector2(0,-1);
+                
 
             }
         }
     }
     void FixedUpdate()
     {
-       
+
         if (possessed)
         {
             transform.position = ghost.position;
-            
+
         }
         else
         {
-            
+
             currentBody.velocity = currentBody.velocity.normalized * (float)speed * Time.deltaTime;
         }
 
@@ -111,7 +121,7 @@ public class BossHand : MonoBehaviour
             }
         }
 
-        
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -120,7 +130,7 @@ public class BossHand : MonoBehaviour
         {
             if (collision.collider.name != "Character")
             {
-                
+
                 if (Random.Range(0, 4) > 1.5)
                 {
                     currentBody.velocity = angles[Random.Range(0, 5)] * -1;
@@ -156,8 +166,10 @@ public class BossHand : MonoBehaviour
     {
         if (collision.collider.name == "Character")
         {
-
-            currentBody.velocity = new Vector2(0, 1);
+            if (collision.collider.transform.position.y - currentBody.transform.position.y > 0)
+            {
+                currentBody.velocity = new Vector2(0, 1);
+            }
         }
     }
 
@@ -180,6 +192,11 @@ public class BossHand : MonoBehaviour
         {
             GhostInside = false;
         }
+
+    }
+
+    private void MovementPatterns()
+    {
 
     }
 }
