@@ -9,6 +9,7 @@ public class BossProjectile : MonoBehaviour
     public double speed;
     public double lifetime = 4;
     private double timer;
+    public int damage = 1;
     void Start()
     {
 
@@ -29,8 +30,13 @@ public class BossProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D trigger)
     {
+        if (trigger.name == "Character")
+        {
+            trigger.GetComponent<Character>().TakeDamage(damage);
+        }
+
         Destroy(this.gameObject);
-        Destroy(this);
+        Destroy(transform);
 
         
 

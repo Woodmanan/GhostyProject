@@ -163,13 +163,13 @@ public class Character : MonoBehaviour
         //Check for hit!
         if (hit.collider)
         {   
-            print("It's on the ground!");
+            //print("It's on the ground!");
             grounded = true;
             return true;
         }
         else
         {
-            print("Tried to be on the ground, and wasn't!");
+            //print("Tried to be on the ground, and wasn't!");
             grounded = false;
             return false;
         }
@@ -274,10 +274,17 @@ public class Character : MonoBehaviour
         }
     }
 
+    
+
+
     private void OnDestroy()
     {
-        print("Destroying");
+        //print("Destroying");
         setFriction(0);
         //GetComponent<CapsuleCollider2D>().sharedMaterial.friction = 1;
     }
+
+  
+  
+    
 }

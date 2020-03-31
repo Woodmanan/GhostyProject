@@ -14,9 +14,9 @@ public class BossHead : MonoBehaviour
     private int leftlimit = -2;
     private int rightlimit = 2;
 
-    public int weakspotID;
-    public int weakSpotHealth;
-    public int damageValue;
+   
+    public int BossHealth = 5;
+    public int DamageReceivedFromFist = 1;
     List<string> damageObjects = new List<string> {"Boulder", "Stalactites"};
 
     public GameObject round;
@@ -43,10 +43,18 @@ public class BossHead : MonoBehaviour
             Vector2 shakeVector = new Vector2(0, Mathf.Sin((float)shakeTimer*50)/25);
             transform.GetChild(0).transform.Translate(shakeVector);
 
+            
             if (shakeTimer > shakeLength)
             {
-                transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0);
-                shakeTimer = 0;
+                if (BossHealth <= 0)
+                {
+                    SendMessageUpwards("Death");
+                }
+                else
+                {
+                    transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0);
+                    shakeTimer = 0;
+                }
             }
 
         }
@@ -57,9 +65,11 @@ public class BossHead : MonoBehaviour
     {
         if (collision.gameObject.name == "LeftHand" || collision.gameObject.name == "RightHand")
         {
-            Debug.Log("YESS");
+
             if (collision.gameObject.GetComponent<BossHand>().justPossessed)
             {
+                Debug.Log("Boss has been attacked");
+                BossHealth -= DamageReceivedFromFist;
 
                 collision.gameObject.GetComponent<BossHand>().justPossessed = false;
                 transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0);

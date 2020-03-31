@@ -1004,6 +1004,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5a1045306ce4b46b19e7232a247151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 2
+  possessed: 0
   justPossessed: 0
   handAttackSpeed: 3
   Left: {fileID: 0}
@@ -1136,6 +1138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5a1045306ce4b46b19e7232a247151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 2
+  possessed: 0
   justPossessed: 0
   handAttackSpeed: 3
   Left: {fileID: 0}
@@ -1248,9 +1252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efbc748d786330349a32898e581534bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weakspotID: 0
-  weakSpotHealth: 2000
-  damageValue: 2
+  BossHealth: 5
+  DamageReceivedFromFist: 1
   round: {fileID: 2822091886833511352, guid: b73ded62e1de1564f80bf76f19f9a8aa, type: 3}
 --- !u!1 &1862378505
 GameObject:

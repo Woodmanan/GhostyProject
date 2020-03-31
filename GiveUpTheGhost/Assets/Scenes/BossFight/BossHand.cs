@@ -5,7 +5,10 @@ using UnityEngine;
 public class BossHand : MonoBehaviour
 {
     // Start is called before the first frame update
-    private bool possessed = false;
+
+    public int damage = 2;
+
+    public bool possessed = false;
     public bool justPossessed = false;
     Rigidbody2D currentBody;
 
@@ -71,7 +74,7 @@ public class BossHand : MonoBehaviour
             if (GhostInside == true)
             {
                 numPresses += 1;
-                Debug.Log("Pressed On Time" + numPresses.ToString());
+               
                 if (ghost.gameObject.GetComponent<Ghost>().ghostMode == true)
                 {
                     if (possessionTimer == 0)
@@ -159,7 +162,7 @@ public class BossHand : MonoBehaviour
             }
             else
             {
-                Debug.Log("Not on the ground");
+                
             }
         }
 
@@ -167,7 +170,6 @@ public class BossHand : MonoBehaviour
         {
             if (collision.collider.transform.position.y - currentBody.transform.position.y > 0)
             {
-                Debug.Log("CharacterIsHere");
                 currentBody.velocity = new Vector2(0, 0);
 
             }
@@ -179,9 +181,23 @@ public class BossHand : MonoBehaviour
     {
         if (collision.collider.name == "Character")
         {
-            if (collision.collider.transform.position.y - currentBody.transform.position.y > 0)
+            if (collision.transform.position.y - currentBody.transform.position.y > 0)
             {
                 currentBody.velocity = new Vector2(0, 1);
+            }
+            if (!possessed)
+            {
+                if (transform.position.y - collision.transform.position.y > 0)
+                {
+                    collision.gameObject.GetComponent<Character>().TakeDamage(damage/2);
+
+                }
+                else
+                {
+                    collision.gameObject.GetComponent<Character>().TakeDamage(damage);
+
+
+                }
             }
         }
 
@@ -198,7 +214,6 @@ public class BossHand : MonoBehaviour
             GhostInside = true;
         }
 
-        Debug.Log(trigger.name);
     }
 
     private void OnTriggerExit2D(Collider2D trigger)

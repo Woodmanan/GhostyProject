@@ -18,13 +18,13 @@ public class Boss : MonoBehaviour
        
     }
 
-    void WeakSpotReachedZero(int weakspotID)
+    void Death()
     {
-        if (weakspotID == 0)
-        {
-            isAlive = false;
-            Destroy(gameObject);
-        }
+        isAlive = false;
+
+        Destroy(this.gameObject);
+        Destroy(transform);
+
 
     }
 
