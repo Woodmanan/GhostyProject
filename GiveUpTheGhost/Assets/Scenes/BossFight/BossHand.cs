@@ -6,11 +6,12 @@ public class BossHand : MonoBehaviour
 {
     // Start is called before the first frame update
     private bool possessed = false;
+    public bool justPossessed = false;
     Rigidbody2D currentBody;
 
     private double speed = 300;
     private Dictionary<int, Vector2> angles;
-
+    public double handAttackSpeed = 3;
     private double possessionDelay = 2;
     private double possessionTimer = 0;
     private Transform ghost;
@@ -59,8 +60,11 @@ public class BossHand : MonoBehaviour
             if (possessed == true)
             {
                 possessed = false;
+                justPossessed = true;
                 possessionTimer = .01;
-                currentBody.velocity = new Vector2(0, -1);
+               
+                Vector2 towardsHead = transform.localPosition.normalized;
+                currentBody.velocity = -(float)handAttackSpeed * towardsHead;
 
             }
 
@@ -92,7 +96,11 @@ public class BossHand : MonoBehaviour
             if (possessed == true)
             {
                 possessed = false;
+                justPossessed = true;
                 possessionTimer = .01;
+
+                Vector2 towardsHead = transform.localPosition.normalized;
+                currentBody.velocity = -(float)handAttackSpeed * towardsHead;
 
 
             }
@@ -142,6 +150,11 @@ public class BossHand : MonoBehaviour
 
                 }
 
+                if (collision.collider.name != "BossHead")
+                {
+                    justPossessed = false;
+                }
+
 
             }
             else
@@ -184,6 +197,8 @@ public class BossHand : MonoBehaviour
             ghost = trigger.transform;
             GhostInside = true;
         }
+
+        Debug.Log(trigger.name);
     }
 
     private void OnTriggerExit2D(Collider2D trigger)
