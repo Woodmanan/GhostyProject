@@ -6,13 +6,14 @@ public class BossHead : MonoBehaviour
 {
     // Start is called before the first frame update
     private Vector3 currentDirection = Vector3.right;
-    private int speed = 1;
+    public int speed = 1;
 
+    private double spiralAngle = 0;
     private double shakeTimer = 0;
-    private double shakeLength = 2;
+    public double shakeLength = 4;
 
-    private int leftlimit = -2;
-    private int rightlimit = 2;
+    public int leftlimit = -2;
+    public int rightlimit = 2;
 
    
     public int BossHealth = 5;
@@ -25,6 +26,7 @@ public class BossHead : MonoBehaviour
     private double roundsPerSecond;
     private double lastShot;
 
+    private int currentPattern;
     
     void Start()
     {
@@ -35,7 +37,8 @@ public class BossHead : MonoBehaviour
     void Update()
     {
         Move();
-        DefaultPattern();
+
+        
 
         if (shakeTimer > 0)
         {
@@ -54,9 +57,30 @@ public class BossHead : MonoBehaviour
                 {
                     transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0);
                     shakeTimer = 0;
+
+                    currentPattern += 1;
+                    if (currentPattern > 2)
+                    {
+                        currentPattern = 0;
+                    }
                 }
             }
 
+        }
+        else
+        {
+            if (currentPattern == 0)
+            {
+                AimPattern();
+            }
+            else if (currentPattern == 1)
+            {
+                CirclePattern();
+            }
+            else if (currentPattern == 2)
+            {
+                SpiralPattern();
+            }
         }
 
     }
@@ -103,13 +127,12 @@ public class BossHead : MonoBehaviour
     {
         Vector2 currVelocity = new Vector2(0, -1);
         double currSpeed = 5;
-        
+        roundsPerSecond = 1;
+
         lastShot += Time.deltaTime;
 
-        if (roundsPerSecond != 1)
-        {
-            roundsPerSecond = 1;
-        }
+       
+        
 
         if (lastShot > 1 / roundsPerSecond)
         {
@@ -125,15 +148,13 @@ public class BossHead : MonoBehaviour
 
     private void AimPattern()
     {
-        Vector2 currVelocity = new Vector2(0, -1);
         double currSpeed = 3;
+        roundsPerSecond = 1;
+      
 
         lastShot += Time.deltaTime;
 
-        if (roundsPerSecond != 5)
-        {
-            roundsPerSecond = 1;
-        }
+        
 
         if (lastShot > 1 / roundsPerSecond)
         {
@@ -141,9 +162,78 @@ public class BossHead : MonoBehaviour
             GameObject newBullet = Instantiate(round);
 
             newBullet.GetComponent<BossProjectile>().speed = currSpeed;
-            newBullet.GetComponent<BossProjectile>().lifetime = 10;
+            newBullet.GetComponent<BossProjectile>().lifetime = 7;
             newBullet.transform.position = transform.position;
             newBullet.GetComponent<BossProjectile>().velocity = (character.transform.position - transform.position).normalized;
+        }
+
+    }
+
+    private void CirclePattern()
+    {
+        double currSpeed = 3;
+        double currAngle = 0;
+        double numInCircle = 7;
+
+        Vector2 currVelocity;
+
+        lastShot += Time.deltaTime;
+        roundsPerSecond = 2;
+        
+
+        if (lastShot > 1 / roundsPerSecond)
+        {
+            lastShot = 0;
+
+            for (int i = 0; i < numInCircle; i++)
+            {
+                currAngle = Mathf.Deg2Rad * i * 360/numInCircle;
+                currVelocity = new Vector2(Mathf.Cos((float)currAngle), Mathf.Sin((float)currAngle));
+
+                GameObject newBullet = Instantiate(round);
+
+                newBullet.GetComponent<BossProjectile>().speed = currSpeed;
+                newBullet.GetComponent<BossProjectile>().lifetime = 5;
+                newBullet.transform.position = transform.position + new Vector3(currVelocity.x, currVelocity.y, 0);
+                newBullet.GetComponent<BossProjectile>().velocity = currVelocity;
+            }
+        }
+
+    }
+
+    private void SpiralPattern()
+    {
+        double currSpeed = 5;
+        
+        double numInCircle = 10;
+        Vector2 currVelocity;
+
+        roundsPerSecond = 10;
+        lastShot += Time.deltaTime;
+
+      
+
+        if (lastShot > 1 / roundsPerSecond)
+        {
+            lastShot = 0;
+
+           
+            spiralAngle += 360 / numInCircle;
+            if (spiralAngle > 360)
+            {
+                spiralAngle = 0;
+            }
+            double currAngle = Mathf.Deg2Rad * spiralAngle;
+                
+            currVelocity = new Vector2(Mathf.Cos((float)currAngle), Mathf.Sin((float)currAngle));
+
+            GameObject newBullet = Instantiate(round);
+
+            newBullet.GetComponent<BossProjectile>().speed = currSpeed;
+            newBullet.GetComponent<BossProjectile>().lifetime = 4;
+            newBullet.transform.position = transform.position + new Vector3(currVelocity.x, currVelocity.y, 0);
+            newBullet.GetComponent<BossProjectile>().velocity = currVelocity;
+            
         }
 
     }
