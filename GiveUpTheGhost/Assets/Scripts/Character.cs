@@ -30,6 +30,9 @@ public class Character : MonoBehaviour
 
     private SpriteRenderer sprite;
 
+    public AudioSource beGhost;
+    public AudioSource beBoy;
+
 
     private List<string> floors = new List<string>() { "Floor", "Platform", "RightHand", "LeftHand"};
 
@@ -74,6 +77,7 @@ public class Character : MonoBehaviour
                     //Ghostmode set in ghost now, to better fit animation
                     //ghostMode = false;
                     ghost.disableGhostMode();
+                    beBoy.Play();
                     //thisBody.mass = 1f;
                     thisBody.drag = 0;
                     setFriction(0);
@@ -88,6 +92,7 @@ public class Character : MonoBehaviour
                 ghostMode = true;
                 ghost.enableGhostMode();
                 //thisBody.mass = 100f;
+                beGhost.Play();
                 thisBody.drag = 4f;
                 setFriction(.5f);
 
