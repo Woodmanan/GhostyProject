@@ -12,8 +12,8 @@ public class BossHead : MonoBehaviour
     private double shakeTimer = 0;
     public double shakeLength = 4;
 
-    public int leftlimit = -2;
-    public int rightlimit = 2;
+    public double leftlimit = -2;
+    public double rightlimit = 2;
 
    
     public int BossHealth = 5;
@@ -31,6 +31,9 @@ public class BossHead : MonoBehaviour
     void Start()
     {
         character = GameObject.Find("Character");
+        leftlimit += transform.position.x;
+        rightlimit += transform.position.x;
+        
     }
 
     // Update is called once per frame
