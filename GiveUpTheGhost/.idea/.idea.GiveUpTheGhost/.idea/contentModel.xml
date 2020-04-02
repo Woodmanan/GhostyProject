@@ -10,6 +10,14 @@
         <e p="MenuLerp.cs" t="Include" />
         <e p="PossesTexControls.cs" t="Include" />
         <e p="QuitGame.cs" t="Include" />
+        <e p="Scenes" t="Include">
+          <e p="BossFight" t="Include">
+            <e p="Boss.cs" t="Include" />
+            <e p="BossHand.cs" t="Include" />
+            <e p="BossHead.cs" t="Include" />
+            <e p="BossProjectile.cs" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="AreaSignal.cs" t="Include" />
           <e p="BossfightControls.cs" t="Include" />
@@ -28,6 +36,7 @@
           <e p="MonsterSense.cs" t="Include" />
           <e p="ObstacleSpawner.cs" t="Include" />
           <e p="PlatformMover.cs" t="Include" />
+          <e p="PlayerAnimation.cs" t="Include" />
           <e p="Possessable.cs" t="Include" />
           <e p="SetUpSlider.cs" t="Include" />
           <e p="Shield.cs" t="Include" />

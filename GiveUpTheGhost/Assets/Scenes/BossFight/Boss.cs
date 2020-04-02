@@ -24,6 +24,7 @@ public class Boss : MonoBehaviour
 
         Destroy(this.gameObject);
         Destroy(transform);
+        GameObject.FindGameObjectWithTag("Finish").GetComponent<BossfightControls>().endFight();
 
 
     }
