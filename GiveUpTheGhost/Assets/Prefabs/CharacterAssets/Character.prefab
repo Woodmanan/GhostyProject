@@ -95,6 +95,10 @@ MonoBehaviour:
   radius: 4
   thiccnes: 0.2
   lerpAmount: 0
+  offsetSpeed: 3
+  minDist: -0.3
+  maxDist: 0.3
+  sizeSpeed: 0.12
 --- !u!1 &2496522619968561585
 GameObject:
   m_ObjectHideFlags: 0

@@ -83,14 +83,16 @@ public class Stalactite : MonoBehaviour
                         }
                         else
                         {
-                            possess.enabled = false;
+                            //possess.enabled = false;
+                            GetComponent<PossesTexControls>().reset();
+                            GetComponent<PossesTexControls>().enabled = false;
                             StartCoroutine(setFallingAfterTimer(.2f));
                         }
                         
                         
                     }
 
-                    GetComponent<ParticleSystem>().Emit(100);
+                    GetComponent<ParticleSystem>().Emit(100 - (40 * tugs));
                 }
             }
         }
@@ -152,6 +154,7 @@ public class Stalactite : MonoBehaviour
         GetComponent<Rigidbody2D>().gravityScale = 0;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<PolygonCollider2D>().enabled = true;
+        GetComponent<PossesTexControls>().enabled = true;
 
         Start();
         
