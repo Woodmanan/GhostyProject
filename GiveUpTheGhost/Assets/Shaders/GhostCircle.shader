@@ -7,6 +7,9 @@
 		_RadOne("Outer Radius", Float) = 5
 		_RadTwo("Inner Radius", Float) = 3
 		_Pos("Character Position", Float) = (0,0,0,0)
+		_Ang("Angulr Multiplier", Float) = 1
+		_Offset("Anguler Offset", Float) = 0
+		_OffMult("Offset Multiplier", Float) = 1
     }
     SubShader
     {
@@ -31,6 +34,9 @@
             uniform float _RadOne;
             uniform float _RadTwo;
             uniform float4 _Pos;
+            uniform float _Ang;
+            uniform float _Offset;
+            uniform float _OffMult;
 
             struct vertexInput {
 				float4 vertex : POSITION;
@@ -57,14 +63,21 @@
 				{
 					float dist = distance(input.position_in_world_space.rg,
 					_Pos.rg);
+					
+					float2 position = float2(input.position_in_world_space.x - _Pos.x, 
+					    input.position_in_world_space.y - _Pos.y);
+					    
+					float angle = atan2(position.y, position.x) * 180 / 3.14 * _Ang;
+					
+					float distPlus = sin(angle + _Offset) * _OffMult;
                     
-					float inside1 = step(dist, _RadOne);
-					float inside2 = step(dist, _RadTwo);
+					float inside1 = step(dist + distPlus, _RadOne);
+					float inside2 = step(dist + distPlus, _RadTwo);
 					
 					float outside = 1 - inside1;
 					float inOne = 1 - inside2;
 					
-					float blank = float4(0,0,0,0);
+					float blank = float4(0,0,angle,angle);
 					// computes the distance between the fragment position 
 					// and the origin (the 4th coordinate should always be 
 					// 1 for points).

@@ -257,6 +257,13 @@ MonoBehaviour:
   horizontalAxis: Horizontal
   verticalAxis: Vertical
   possessed: 0
+  distToPossess: 0
+  speed: 1
+  speedToDamage: 0
+  damage: 0
+  possessionBegins:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1520429136
 GameObject:
   m_ObjectHideFlags: 0

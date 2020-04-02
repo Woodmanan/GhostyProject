@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.54901963, g: 0.4156863, b: 0.6117647, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bcbedd4c37a7254dafa2b6cd92d23dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 2.15
+  lengthOfBridge: 1
 --- !u!1 &8001779965119455229
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 8001779965119455217}
   - component: {fileID: 8001779965119455216}
   - component: {fileID: 8001779965119455231}
+  - component: {fileID: 4435325675997782518}
   m_Layer: 9
   m_Name: GrabPoint
   m_TagString: Untagged
@@ -229,7 +230,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9f0952e494b591a429e9140da8d8c2ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,7 +251,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: d85659a26d51021408c8e3fb432f250b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -297,9 +298,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0.06784615, y: 0.06707692, z: 0.06707692, w: 0.06707692}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.15384616, y: 0.15384616}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -327,6 +328,8 @@ MonoBehaviour:
   speed: 3
   speedToDamage: 100
   damage: 0
+  enableGravityOnRelease: 1
+  stopVelocityOnRelease: 0
   possessionBegins:
     m_PersistentCalls:
       m_Calls:
@@ -378,6 +381,21 @@ FixedJoint2D:
   m_ConnectedAnchor: {x: 0, y: 2.3}
   m_DampingRatio: 1
   m_Frequency: 0
+--- !u!114 &4435325675997782518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8001779965119455229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77986ba03b6df7e4b81dd9ada304f70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wiggleSpeed: 3
+  maxGreen: 0.3
+  maxOffset: 0.04
 --- !u!1 &8001779966037536627
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,9 +466,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -87
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.6415094, g: 0.39766243, b: 0.018155932, a: 1}
+  m_SortingOrder: 28
+  m_Sprite: {fileID: 21300000, guid: 2c2b4e3a2e1ccef428f147c1ae8b4ab6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -475,9 +493,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0.056222223, y: 0.056, z: 0.055555556, w: 0.055555556}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.22222222, y: 0.22222222}
     newSize: {x: 0.16, y: 2.27}
     adaptiveTilingThreshold: 0.5
     drawMode: 2

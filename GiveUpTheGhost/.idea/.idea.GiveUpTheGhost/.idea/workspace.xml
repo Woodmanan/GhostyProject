@@ -11,47 +11,63 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ObstacleSpawner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/PlatformMover.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/FallingDamage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shaders/GlowShader.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CircleController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shaders/GreenWiggle.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/Darkness.shader" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/BridgeConnector.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/DeathOnTouch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PossesTexControls.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/EndLevel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/CircleController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/FollowsPlayer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Possessable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ghost.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MenuLerp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/db/b173059e/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/EndFightOnTrigger.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Character.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/BossfightControls.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Ghost.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/AreaSignal.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Shield.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Stalactite.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FollowsPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ForceRespawn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shaders/UnlitTest.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Possessable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Stalactite.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/QuitGame.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/DeathOnTouch.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" />
         <option value="$PROJECT_DIR$/Assets/CircleController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Stalactite.cs" />
-        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/FollowsPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Ghost.cs" />
-        <option value="$PROJECT_DIR$/Assets/Possessable.cs" />
-        <option value="$PROJECT_DIR$/Assets/EndLevel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Character.cs" />
-        <option value="$PROJECT_DIR$/Assets/BridgeConnector.cs" />
         <option value="$PROJECT_DIR$/Assets/BossfightControls.cs" />
         <option value="$PROJECT_DIR$/Assets/EndFightOnTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Shield.cs" />
         <option value="$PROJECT_DIR$/Assets/FallingDamage.cs" />
-        <option value="$PROJECT_DIR$/Assets/ObstacleSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/EndLevel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Monster.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Ghost.cs" />
         <option value="$PROJECT_DIR$/Assets/PlatformMover.cs" />
+        <option value="$PROJECT_DIR$/Assets/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/StopPlayerGrav.cs" />
+        <option value="$PROJECT_DIR$/Assets/ObstacleSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/BridgeConnector.cs" />
+        <option value="$PROJECT_DIR$/Assets/Possessable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Stalactite.cs" />
+        <option value="$PROJECT_DIR$/Assets/SetUpSlider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Checkpoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/ForceRespawn.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Checkpoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FollowsPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ghost.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Possessable.cs" />
+        <option value="$PROJECT_DIR$/Assets/QuitGame.cs" />
+        <option value="$PROJECT_DIR$/Assets/MenuLerp.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CircleController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/UnlitTest.shader" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/GreenWiggle.shader" />
+        <option value="$PROJECT_DIR$/Assets/PossesTexControls.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Stalactite.cs" />
       </list>
     </option>
   </component>
@@ -124,6 +140,24 @@
       <workItem from="1584206355624" duration="64000" />
       <workItem from="1584404058041" duration="2313000" />
       <workItem from="1584716126953" duration="7869000" />
+      <workItem from="1585015325186" duration="1510000" />
+      <workItem from="1585017567361" duration="1013000" />
+      <workItem from="1585018667639" duration="582000" />
+      <workItem from="1585019777428" duration="877000" />
+      <workItem from="1585021458231" duration="960000" />
+      <workItem from="1585232777740" duration="4575000" />
+      <workItem from="1585260286533" duration="1130000" />
+      <workItem from="1585261904963" duration="2044000" />
+      <workItem from="1585264045344" duration="32000" />
+      <workItem from="1585264249818" duration="1076000" />
+      <workItem from="1585265855300" duration="899000" />
+      <workItem from="1585266979720" duration="55000" />
+      <workItem from="1585269122093" duration="1835000" />
+      <workItem from="1585271961330" duration="309000" />
+      <workItem from="1585273443199" duration="1263000" />
+      <workItem from="1585276467523" duration="2219000" />
+      <workItem from="1585608340977" duration="1994000" />
+      <workItem from="1585752327235" duration="6842000" />
     </task>
     <servers />
   </component>
@@ -146,13 +180,13 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="409" y="222" key="run.anything.popup" timestamp="1584732410507">
+    <state x="409" y="222" key="run.anything.popup" timestamp="1585755931297">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state x="409" y="222" key="run.anything.popup/0.0.1504.963@0.0.1504.963" timestamp="1584732410507" />
-    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1583274283695">
+    <state x="409" y="222" key="run.anything.popup/0.0.1504.963@0.0.1504.963" timestamp="1585755931297" />
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1585277570221">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1583274283695" />
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1585277570221" />
   </component>
 </project>
