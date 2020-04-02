@@ -18,6 +18,8 @@ public class Monster : MonoBehaviour
     public bool inAir;
     public bool hitJumpSignal = false;
 
+    public AudioClip sfx;
+
     [SerializeField] private int health;
 
 
@@ -229,6 +231,7 @@ public class Monster : MonoBehaviour
         if (health <= 0)
         {
             print("Monster has died!");
+            gameObject.GetComponent<AudioSource>().PlayOneShot(sfx);
             Destroy(this.gameObject);
         }
     }

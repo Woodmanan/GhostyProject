@@ -27,6 +27,10 @@ public class Possessable : MonoBehaviour
     private Ghost ghost;
     private DistanceJoint2D joint;
 
+    public AudioClip possessSFX;
+    public AudioClip unpossessSFX;
+    public AudioSource soundSource;
+
     [SerializeField] private bool enableGravityOnRelease = true;
     [SerializeField] private bool stopVelocityOnRelease = false;
 
@@ -70,6 +74,7 @@ public class Possessable : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
+                soundSource.PlayOneShot(unpossessSFX);
                 stopPossession();
             }
         }
@@ -87,6 +92,7 @@ public class Possessable : MonoBehaviour
                     }
                     else
                     {
+                        soundSource.PlayOneShot(possessSFX);
                         Possess();
                     }
                 }
