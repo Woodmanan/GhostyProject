@@ -78,6 +78,11 @@ public class GameManager : MonoBehaviour
         respawnPoint = position;
     }
 
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
