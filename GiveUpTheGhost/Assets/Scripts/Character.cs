@@ -32,6 +32,8 @@ public class Character : MonoBehaviour
 
     public AudioClip beGhost;
     public AudioClip beBoy;
+    public AudioClip jumpsfx;
+    public AudioClip land;
 
 
     private List<string> floors = new List<string>() { "Floor", "Platform", "RightHand", "LeftHand"};
@@ -189,6 +191,7 @@ public class Character : MonoBehaviour
         // Handle landing if applicable
         if (onGround() && !onGroundLast)
         {
+            GetComponent<AudioSource>().PlayOneShot(land, 1f);
             // The player just landed, handle animation and relinquish control
             if (pa.facing) pa.SetAnimation("rightLand");
             else pa.SetAnimation("leftLand");
@@ -211,10 +214,11 @@ public class Character : MonoBehaviour
             float hMove = Input.GetAxisRaw("Horizontal") * currSpeed;
             float vMove = 0;
             float jump = Input.GetAxisRaw("Vertical") * jumpValue;
-            
+
             //Uses onGround to raycast for floor collisions
             if ((jump > 0) && onGround() && jumpCooldown <= 0 && !pa.turning)
             {
+                GetComponent<AudioSource>().PlayOneShot(jumpsfx, 1f);
                 //vMove = jump;
                 //Add Force to body to cause jump
                 thisBody.velocity = new Vector2(thisBody.velocity.x, 0);
@@ -229,6 +233,7 @@ public class Character : MonoBehaviour
             // Handle ground animation
             else if (!pa.turning && onGround())
             {
+
                 if (Input.GetAxisRaw("Horizontal") > 0)
                 {
                     if (pa.facing) pa.SetAnimation("rightWalk");

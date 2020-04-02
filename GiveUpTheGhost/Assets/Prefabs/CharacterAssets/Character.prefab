@@ -619,6 +619,8 @@ MonoBehaviour:
     m_Bits: 768
   beGhost: {fileID: 8300000, guid: af78aac726b83423287e9f04963da732, type: 3}
   beBoy: {fileID: 8300000, guid: 8f99a75104b504067b2958d211f93c8a, type: 3}
+  jumpsfx: {fileID: 8300000, guid: 057e6cef9f0e946fab85e39fa66f4191, type: 3}
+  land: {fileID: 8300000, guid: cf114151a1fc6450d88e97c159c6a9c3, type: 3}
   radius: 4.5
   groundCheck: {x: 0, y: -0.42}
   jumpRad: 0.23
@@ -691,7 +693,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

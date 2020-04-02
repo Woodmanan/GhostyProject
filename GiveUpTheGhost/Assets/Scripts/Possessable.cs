@@ -29,7 +29,7 @@ public class Possessable : MonoBehaviour
 
     public AudioClip possessSFX;
     public AudioClip unpossessSFX;
-    public AudioSource soundSource;
+    private AudioSource soundSource;
 
     [SerializeField] private bool enableGravityOnRelease = true;
     [SerializeField] private bool stopVelocityOnRelease = false;
@@ -42,6 +42,7 @@ public class Possessable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        soundSource = GetComponent<AudioSource>();
         rig = GetComponent<Rigidbody2D>();
         body = GameObject.FindGameObjectWithTag("Body").GetComponent<Character>();
         ghost = GameObject.FindGameObjectWithTag("Ghost").GetComponent<Ghost>();
