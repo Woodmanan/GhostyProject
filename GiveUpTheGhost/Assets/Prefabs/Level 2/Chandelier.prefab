@@ -265,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tugs: 3
   delay: 0.3
+  sfx: {fileID: 8300000, guid: b898cb01299614645b66a06e86c0b4b3, type: 3}
   stayAfterFalling: 1
 --- !u!199 &6653495914435490523
 ParticleSystemRenderer:

@@ -12,6 +12,8 @@ public class Stalactite : MonoBehaviour
 
     [SerializeField] private float delay;
     private float timer;
+
+    public AudioClip sfx;
     
     private Character body;
     private Ghost ghost;
@@ -70,6 +72,7 @@ public class Stalactite : MonoBehaviour
                 {
                     timer = delay;
                     tugs -= 1;
+                    GetComponent<AudioSource>().PlayOneShot(sfx);
                     if (tugs == 0)
                     {
                         //Turn off this piece!

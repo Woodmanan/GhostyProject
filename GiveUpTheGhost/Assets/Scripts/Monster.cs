@@ -231,7 +231,7 @@ public class Monster : MonoBehaviour
         if (health <= 0)
         {
             print("Monster has died!");
-            gameObject.GetComponent<AudioSource>().PlayOneShot(sfx);
+            Camera.main.GetComponent<AudioSource>().PlayOneShot(sfx);
             Destroy(this.gameObject);
         }
     }
