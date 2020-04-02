@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 3
+  fireball: {fileID: 8300000, guid: f8714931bc3d74a8c85da8b83086ec54, type: 3}
   offset: {x: 0, y: -0.58, z: 0}
   objectToDrop: {fileID: 4607382665604677466, guid: 4b250401f5ee43d4d91f990f19358582,
     type: 3}

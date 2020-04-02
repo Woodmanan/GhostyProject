@@ -34,6 +34,7 @@ public class FallingDamage : MonoBehaviour
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<CircleCollider2D>().enabled = false;
         GetComponent<ParticleSystem>().Play();
+        GetComponent<AudioSource>().Play();
         GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(delay);
         Destroy(this.gameObject);

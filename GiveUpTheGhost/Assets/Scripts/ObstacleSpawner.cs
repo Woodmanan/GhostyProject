@@ -23,6 +23,7 @@ public class ObstacleSpawner : MonoBehaviour
         {
             timer += Random.Range(0, delay);
         }
+
     }
 
     // Update is called once per frame
