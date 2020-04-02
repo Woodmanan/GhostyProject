@@ -35,8 +35,11 @@ public class BossProjectile : MonoBehaviour
             trigger.GetComponent<Character>().TakeDamage(damage);
         }
 
-        Destroy(this.gameObject);
-        Destroy(transform);
+        if (trigger.name != "BossProjectile")
+        {
+            Destroy(this.gameObject);
+            Destroy(transform);
+        }
 
         
 

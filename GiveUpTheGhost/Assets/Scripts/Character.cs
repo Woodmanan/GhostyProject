@@ -44,6 +44,9 @@ public class Character : MonoBehaviour
     [SerializeField] private int health;
 
     private CapsuleCollider2D capsule;
+    private PlayerAnimation pa;
+
+    private bool onGroundLast = true;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +57,7 @@ public class Character : MonoBehaviour
         jumpCooldown = 0;
         ghost = GameObject.FindGameObjectWithTag("Ghost").GetComponent<Ghost>();
         capsule = GetComponent<CapsuleCollider2D>();
+        pa = GetComponentInChildren<PlayerAnimation>();
         setFriction(0);
     }
 
@@ -182,8 +186,23 @@ public class Character : MonoBehaviour
 
     private void Movement()
     {
+        // Handle landing if applicable
+        if (onGround() && !onGroundLast)
+        {
+            // The player just landed, handle animation and relinquish control
+            if (pa.facing) pa.SetAnimation("rightLand");
+            else pa.SetAnimation("leftLand");
+            onGroundLast = true;
+            thisBody.velocity = new Vector2(0f, 0f);
+            return;
+        }
+        onGroundLast = onGround();
+        if (pa.landing) return;
+
         //Rigidbody Velocity Movement
         float inputVelocty = Input.GetAxisRaw("Horizontal");
+        // Only apply horizontal velocity if not mid-turn
+        if (pa.turning) inputVelocty = 0f;
         thisBody.velocity = new Vector2(inputVelocty * maxSpeed, thisBody.velocity.y);
         
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
@@ -194,7 +213,7 @@ public class Character : MonoBehaviour
             float jump = Input.GetAxisRaw("Vertical") * jumpValue;
             
             //Uses onGround to raycast for floor collisions
-            if ((jump > 0) && onGround() && jumpCooldown <= 0)
+            if ((jump > 0) && onGround() && jumpCooldown <= 0 && !pa.turning)
             {
                 //vMove = jump;
                 //Add Force to body to cause jump
@@ -202,18 +221,37 @@ public class Character : MonoBehaviour
                 thisBody.AddForce(jumpForce * Vector2.up, ForceMode2D.Force);
                 
                 jumpCooldown = jumpCooldownTime;
-            }
 
-            //Flip our sprite!
-            if (Input.GetAxisRaw("Horizontal") > 0)
-            {
-                sprite.flipX = false;
+                // Handle jumping animation
+                if (pa.facing) pa.SetAnimation("rightJump");
+                else pa.SetAnimation("leftJump");
             }
-            else if (Input.GetAxisRaw("Horizontal") < 0)
+            // Handle ground animation
+            else if (!pa.turning && onGround())
             {
-                sprite.flipX = true;
-
+                if (Input.GetAxisRaw("Horizontal") > 0)
+                {
+                    if (pa.facing) pa.SetAnimation("rightWalk");
+                    else pa.SetAnimation("leftRightTurn");
+                }
+                else if (Input.GetAxisRaw("Horizontal") < 0)
+                {
+                    if (pa.facing) pa.SetAnimation("rightLeftTurn");
+                    else pa.SetAnimation("leftWalk");
+                }
+                else
+                {
+                    if (pa.facing) pa.SetAnimation("rightIdle");
+                    else pa.SetAnimation("leftIdle");
+                }
             }
+            // Handle free falling animation
+            else if (!pa.turning && !onGround() && pa.currentAnimId != "leftJump" && pa.currentAnimId != "rightJump")
+            {
+                if (pa.facing) pa.SetAnimation("rightFall");
+                else pa.SetAnimation("leftFall");
+            }
+           
 
             /*
             Vector2 directionMoved = new Vector2(hMove, vMove);
@@ -221,6 +259,12 @@ public class Character : MonoBehaviour
             */
 
 
+        }
+        else if (Input.GetAxisRaw("Horizontal") == 0 && !pa.turning && onGround())
+        {
+            // Update animation to idle if not moving
+            if (pa.facing) pa.SetAnimation("rightIdle");
+            else pa.SetAnimation("leftIdle");
         }
 
         if (isJumping)
