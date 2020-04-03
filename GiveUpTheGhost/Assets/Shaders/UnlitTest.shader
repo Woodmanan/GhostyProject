@@ -65,10 +65,11 @@
             
             float4 sample(float2 uv, float xOff, float yOff)
             {
-                float2 update = float2(uv.x + xOff, uv.y + yOff);
+                float2 update = float2(fmod(uv.x + xOff + 1, 1), fmod(uv.y + yOff + 1, 1));
                 float outBounds = (step(update.x, 0) + step(1, update.x));
                 outBounds = outBounds + step(update.y, 0) + step(1, update.y);
                 float inBounds = 1 - outBounds;
+                
                 return _Col * outBounds + tex2D(_MainTex, update) * inBounds;
             }
 
