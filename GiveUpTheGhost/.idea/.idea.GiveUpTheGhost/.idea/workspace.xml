@@ -60,7 +60,6 @@
         <option value="$PROJECT_DIR$/Assets/ForceRespawn.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Checkpoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FollowsPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ghost.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Possessable.cs" />
         <option value="$PROJECT_DIR$/Assets/QuitGame.cs" />
@@ -74,6 +73,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Stalactite.cs" />
         <option value="$PROJECT_DIR$/Assets/Scenes/BossFight/BossHand.cs" />
         <option value="$PROJECT_DIR$/Assets/Scenes/BossFight/Boss.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
       </list>
     </option>
   </component>
@@ -165,6 +165,7 @@
       <workItem from="1585608340977" duration="1994000" />
       <workItem from="1585752327235" duration="6842000" />
       <workItem from="1585867199014" duration="2178000" />
+      <workItem from="1585872066724" duration="192000" />
     </task>
     <servers />
   </component>

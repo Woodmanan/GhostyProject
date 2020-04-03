@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -322,6 +323,7 @@ public class Character : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         health -= dmg;
+        StartCoroutine(DamageFlash());
         if (health <= 0)
         {
             Die();
@@ -338,7 +340,14 @@ public class Character : MonoBehaviour
         //GetComponent<CapsuleCollider2D>().sharedMaterial.friction = 1;
     }
 
-  
-  
-    
+    IEnumerator DamageFlash()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(.25f);
+        sprite.color = Color.white;
+    }
+
+
+
+
 }
