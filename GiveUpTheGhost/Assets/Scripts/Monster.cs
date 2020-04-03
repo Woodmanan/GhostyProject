@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class Monster : MonoBehaviour
 {
@@ -140,13 +141,13 @@ public class Monster : MonoBehaviour
         if (curr_direction == 0)
         {
 
-            newPosition = speed * Vector3.right;
+            newPosition = speed * Vector3.right * Time.deltaTime;
 
         }
         else if (curr_direction == 1)
         {
 
-            newPosition = speed * Vector3.left;
+            newPosition = speed * Vector3.left * Time.deltaTime;
 
         }
 

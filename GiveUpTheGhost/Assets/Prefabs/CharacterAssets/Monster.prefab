@@ -135,7 +135,7 @@ MonoBehaviour:
   hitJumpSignal: 0
   sfx: {fileID: 8300000, guid: 5ad67dfb3338b45b6a73d63d70520401, type: 3}
   health: 3
-  speed: 0.1
+  speed: 1
   damageToPlayer: 1
   horizontal_margin: 0
   enemyType: 0

@@ -35,6 +35,7 @@
           <e p="FollowsPlayer.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="Ghost.cs" t="Include" />
+          <e p="GhostAnimation.cs" t="Include" />
           <e p="Monster.cs" t="Include" />
           <e p="MonsterSense.cs" t="Include" />
           <e p="ObstacleSpawner.cs" t="Include" />

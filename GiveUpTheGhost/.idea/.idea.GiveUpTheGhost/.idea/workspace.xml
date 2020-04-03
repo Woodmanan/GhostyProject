@@ -31,6 +31,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/ForceRespawn.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/BossFight/BossHead.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/UnlitTest.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Monster.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Possessable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Stalactite.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/QuitGame.cs" root0="FORCE_HIGHLIGHTING" />
@@ -76,6 +77,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Possessable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Stalactite.cs" />
         <option value="$PROJECT_DIR$/Assets/Scenes/BossFight/BossHand.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Monster.cs" />
       </list>
     </option>
   </component>
@@ -176,6 +178,7 @@
       <workItem from="1585878034844" duration="2980000" />
       <workItem from="1585882455389" duration="914000" />
       <workItem from="1585883542936" duration="1186000" />
+      <workItem from="1585884885142" duration="255000" />
     </task>
     <servers />
   </component>
