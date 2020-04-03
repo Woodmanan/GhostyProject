@@ -15,6 +15,8 @@ public class BossHead : MonoBehaviour
     public double leftlimit = -2;
     public double rightlimit = 2;
 
+    public AudioClip lasersfx;
+
    
     public int BossHealth = 5;
     public int DamageReceivedFromFist = 1;
@@ -162,6 +164,7 @@ public class BossHead : MonoBehaviour
         if (lastShot > 1 / roundsPerSecond)
         {
             lastShot = 0;
+            GetComponent<AudioSource>().PlayOneShot(lasersfx);
             GameObject newBullet = Instantiate(round);
 
             newBullet.GetComponent<BossProjectile>().speed = currSpeed;

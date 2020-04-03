@@ -12,6 +12,8 @@ public class BossHand : MonoBehaviour
     public bool justPossessed = false;
     Rigidbody2D currentBody;
 
+    public AudioClip handssfx;
+
     private double speed = 300;
     private Dictionary<int, Vector2> angles;
     public double handAttackSpeed = 3;
@@ -139,6 +141,7 @@ public class BossHand : MonoBehaviour
     {
         if (possessed == false)
         {
+            GetComponent<AudioSource>().PlayOneShot(handssfx);
             if (collision.collider.name != "Character")
             {
 
