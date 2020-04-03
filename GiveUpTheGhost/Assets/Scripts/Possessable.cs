@@ -78,6 +78,13 @@ public class Possessable : MonoBehaviour
                 soundSource.PlayOneShot(unpossessSFX);
                 stopPossession();
             }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                soundSource.PlayOneShot(unpossessSFX);
+                stopPossession();
+                ghost.disableGhostMode();
+            }
         }
         else
         {

@@ -86,8 +86,8 @@ public class Character : MonoBehaviour
                     ghost.disableGhostMode();
                     GetComponent<AudioSource>().PlayOneShot(beBoy);
                     //thisBody.mass = 1f;
-                    thisBody.drag = 0;
-                    setFriction(0);
+                    //thisBody.drag = 0;
+                    //setFriction(0);
 
                     //Reset position
                     //ghost.transform.localPosition = new Vector3(0, 0, 1);
@@ -100,8 +100,8 @@ public class Character : MonoBehaviour
                 ghost.enableGhostMode();
                 //thisBody.mass = 100f;
                 GetComponent<AudioSource>().PlayOneShot(beGhost);
-                thisBody.drag = 4f;
-                setFriction(.5f);
+                //thisBody.drag = 4f;
+                //setFriction(.5f);
 
             }
 
@@ -150,6 +150,14 @@ public class Character : MonoBehaviour
         capsule.sharedMaterial.friction = friction;
         capsule.enabled = false;
         capsule.enabled = true;
+        if (friction == 0)
+        {
+            thisBody.drag = 0;
+        }
+        else
+        {
+            thisBody.drag = 4;
+        }
     }
     
 
@@ -323,7 +331,10 @@ public class Character : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         health -= dmg;
-        StartCoroutine(DamageFlash());
+        if (dmg > 0)
+        {
+            StartCoroutine(DamageFlash());
+        }
         if (health <= 0)
         {
             Die();

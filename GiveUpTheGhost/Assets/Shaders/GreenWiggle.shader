@@ -3,6 +3,7 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Color("Color", Color) = (1,1,1,1)
         _ActualOff("Actual Offset", float) = 0
         _HeightMult("Height Multiplier", float) = 0
         _Offset("Offset Multiplier", float) = 0
@@ -48,6 +49,7 @@
             uniform float _Offset;
             uniform float _OffAmt;
             uniform float _GrnAmt;
+            uniform float4 _Color;
 
             v2f vert (appdata v)
             {
@@ -63,7 +65,7 @@
                 // sample the texture
                 float sideOffset = sin(i.uv.y * _HeightMult + _OffAmt) * _Offset;
                 float2 uv = float2(i.uv.x * _ActualOff + sideOffset,  i.uv.y);
-                fixed4 col = tex2D(_MainTex, uv);
+                fixed4 col = tex2D(_MainTex, uv) * _Color;
                 
                 float green = 1 - _GrnAmt;
                 

@@ -612,7 +612,7 @@ MonoBehaviour:
   ghostMode: 0
   accel: 7
   maxSpeed: 4
-  jumpForce: 24
+  jumpForce: 25
   jumpCooldownTime: 0.2
   jumpingMask:
     serializedVersion: 2

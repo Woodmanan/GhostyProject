@@ -65,6 +65,12 @@ public class Stalactite : MonoBehaviour
                 stopPossession();
             }
 
+            if (Input.GetKeyDown(KeyCode.Space) && !disconnected)
+            {
+                stopPossession();
+                ghost.disableGhostMode();
+            }
+
             //See if we can pull
             if (!disconnected && Input.GetKeyDown(KeyCode.DownArrow))
             {

@@ -18,6 +18,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Checkpoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/Darkness.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PossesTexControls.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/SetCheckpoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/BossFight/Boss.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/BossFight/BossHand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" root0="FORCE_HIGHLIGHTING" />
@@ -60,20 +61,21 @@
         <option value="$PROJECT_DIR$/Assets/ForceRespawn.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Checkpoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FollowsPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ghost.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Possessable.cs" />
         <option value="$PROJECT_DIR$/Assets/QuitGame.cs" />
         <option value="$PROJECT_DIR$/Assets/MenuLerp.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CircleController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shaders/GreenWiggle.shader" />
         <option value="$PROJECT_DIR$/Assets/PossesTexControls.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Stalactite.cs" />
         <option value="$PROJECT_DIR$/Assets/Scenes/BossFight/BossHand.cs" />
         <option value="$PROJECT_DIR$/Assets/Scenes/BossFight/Boss.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/UnlitTest.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Possessable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Stalactite.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ghost.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/GreenWiggle.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/SetCheckpoint.cs" />
       </list>
     </option>
   </component>
@@ -171,6 +173,7 @@
       <workItem from="1585875822547" duration="176000" />
       <workItem from="1585876641250" duration="498000" />
       <workItem from="1585877381981" duration="463000" />
+      <workItem from="1585878034844" duration="2980000" />
     </task>
     <servers />
   </component>

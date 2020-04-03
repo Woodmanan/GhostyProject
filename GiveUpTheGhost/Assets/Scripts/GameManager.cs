@@ -35,6 +35,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
         //Grab the body, which is always enabled
         GameObject bodytmp = GameObject.FindGameObjectWithTag("Body");
         
@@ -46,7 +51,7 @@ public class GameManager : MonoBehaviour
             body = bodytmp.GetComponent<Character>();
             ghost = body.transform.GetChild(2).GetComponent<Ghost>();
             lives = 3;
-            respawnPoint = body.transform.position;
+            setCheckpoint(body.transform.position);
         }
 
         
@@ -70,11 +75,17 @@ public class GameManager : MonoBehaviour
             RestartLevel();
         }
 
+        if (!body)
+        {
+            body = GameObject.FindGameObjectWithTag("Body").GetComponent<Character>();
+        }
+
         body.transform.position = new Vector3(respawnPoint.x, respawnPoint.y, body.transform.position.z);
     }
 
     public void setCheckpoint(Vector3 position)
     {
+        print("Setting checkpoint!");
         respawnPoint = position;
     }
 

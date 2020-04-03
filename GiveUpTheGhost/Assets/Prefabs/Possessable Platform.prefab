@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2686457161224260893}
   - component: {fileID: 2686457161224260892}
   - component: {fileID: -1546398996138681068}
+  - component: {fileID: 8400414734122881731}
   m_Layer: 8
   m_Name: Possessable Platform
   m_TagString: Untagged
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3928cfab37b164a44aa2f1c40fc82511, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +93,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d85659a26d51021408c8e3fb432f250b, type: 3}
-  m_Color: {r: 0.5566038, g: 0.18999074, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -215,7 +216,6 @@ MonoBehaviour:
   damage: 0
   possessSFX: {fileID: 8300000, guid: be9a94434d46544eba171ad5cc7d61ce, type: 3}
   unpossessSFX: {fileID: 8300000, guid: 71bc79447ba6c428587598cfcbd10cff, type: 3}
-  soundSource: {fileID: -1546398996138681068}
   enableGravityOnRelease: 0
   stopVelocityOnRelease: 1
   possessionBegins:
@@ -317,3 +317,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8400414734122881731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2686457161224260886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77986ba03b6df7e4b81dd9ada304f70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wiggleSpeed: 0
+  maxGreen: 1.4
+  maxOffset: 0

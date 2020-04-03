@@ -54,6 +54,7 @@ public class Ghost : MonoBehaviour
         }
         radius.setLerp(1);
         joint.distance = dist;
+        body.setFriction(.5f);
     }
 
     public void enableGhostMode()
@@ -81,6 +82,7 @@ public class Ghost : MonoBehaviour
         body.ghostMode = false;
         rigid.simulated = false;
         sprite.enabled = false;
+        body.setFriction(0);
     }
 
     public void disableGhostMode()
