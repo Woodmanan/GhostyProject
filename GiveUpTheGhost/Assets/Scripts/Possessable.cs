@@ -34,6 +34,8 @@ public class Possessable : MonoBehaviour
     [SerializeField] private bool enableGravityOnRelease = true;
     [SerializeField] private bool stopVelocityOnRelease = false;
 
+    private PossesTexControls possessTex;
+
     //Event for possession start
     public UnityEvent possessionBegins;
     
@@ -47,6 +49,7 @@ public class Possessable : MonoBehaviour
         body = GameObject.FindGameObjectWithTag("Body").GetComponent<Character>();
         ghost = GameObject.FindGameObjectWithTag("Ghost").GetComponent<Ghost>();
         possessed = false;
+        possessTex = GetComponent<PossesTexControls>();
         
         //Set up our joint
         joint = GetComponent<DistanceJoint2D>();
@@ -114,24 +117,23 @@ public class Possessable : MonoBehaviour
         yield return null;
         float timer = 0;
         bool red = false;
-        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         while (timer < timeToFlash)
         {
             timer += timeToHold;
             if (red)
             {
-                sprite.color = Color.white;
+                possessTex.floatColor = Color.white;
             }
             else
             {
-                sprite.color = Color.red;
+                possessTex.floatColor = Color.red;
             }
 
             red = !red;
             yield return new WaitForSeconds(timeToHold);
         }
 
-        sprite.color = Color.white;
+        possessTex.floatColor = Color.white;
     }
 
     IEnumerator startPossession(float lerpTime, Vector2 offset)

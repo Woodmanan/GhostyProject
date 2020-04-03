@@ -5197,6 +5197,7 @@ MonoBehaviour:
   wiggleSpeed: 4
   maxGreen: 0.4
   maxOffset: 0.02
+  floatColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!82 &4189930678306082144
 AudioSource:
   m_ObjectHideFlags: 0
