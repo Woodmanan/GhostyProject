@@ -6,6 +6,9 @@
     <e p="C:\Users\Woodm\Documents\GitHub\GhostyProject\GiveUpTheGhost" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Fonts" t="Include">
+          <e p="Tension Type Font License.txt" t="Include" />
+        </e>
         <e p="ForceRespawn.cs" t="Include" />
         <e p="MenuLerp.cs" t="Include" />
         <e p="PossesTexControls.cs" t="Include" />

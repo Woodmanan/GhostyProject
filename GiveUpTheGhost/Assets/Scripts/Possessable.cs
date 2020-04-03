@@ -76,13 +76,13 @@ public class Possessable : MonoBehaviour
             //target += offset;
             rig.velocity = offset * speed;
             
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.Z))
             {
                 soundSource.PlayOneShot(unpossessSFX);
                 stopPossession();
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 soundSource.PlayOneShot(unpossessSFX);
                 stopPossession();
@@ -91,7 +91,7 @@ public class Possessable : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && ghost.ghostMode)
+            if (Input.GetKeyDown(KeyCode.Z) && ghost.ghostMode)
             {
                 if (Vector2.Distance(transform.position, ghost.transform.position) < distToPossess)
                 {

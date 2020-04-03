@@ -65,17 +65,17 @@
         <option value="$PROJECT_DIR$/Assets/MenuLerp.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CircleController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scenes/BossFight/BossHand.cs" />
         <option value="$PROJECT_DIR$/Assets/Scenes/BossFight/Boss.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/UnlitTest.shader" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Stalactite.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ghost.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/SetCheckpoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/GreenWiggle.shader" />
         <option value="$PROJECT_DIR$/Assets/PossesTexControls.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Possessable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Stalactite.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scenes/BossFight/BossHand.cs" />
       </list>
     </option>
   </component>
@@ -175,6 +175,7 @@
       <workItem from="1585877381981" duration="463000" />
       <workItem from="1585878034844" duration="2980000" />
       <workItem from="1585882455389" duration="914000" />
+      <workItem from="1585883542936" duration="1186000" />
     </task>
     <servers />
   </component>

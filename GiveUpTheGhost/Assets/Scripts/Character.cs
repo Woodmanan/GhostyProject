@@ -74,7 +74,7 @@ public class Character : MonoBehaviour
         jumpCooldown -= Time.deltaTime;
         
         
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
 
            
@@ -219,12 +219,12 @@ public class Character : MonoBehaviour
         if (pa.turning) inputVelocty = 0f;
         thisBody.velocity = new Vector2(inputVelocty * maxSpeed, thisBody.velocity.y);
         
-        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Jump") != 0)
         {
 
             float hMove = Input.GetAxisRaw("Horizontal") * currSpeed;
             float vMove = 0;
-            float jump = Input.GetAxisRaw("Vertical") * jumpValue;
+            float jump = (Input.GetAxisRaw("Vertical") + Input.GetAxis("Jump")) * jumpValue ;
 
             //Uses onGround to raycast for floor collisions
             if ((jump > 0) && onGround() && jumpCooldown <= 0 && !pa.turning)

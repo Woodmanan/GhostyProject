@@ -60,7 +60,7 @@ public class BossHand : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             if (possessed == true)
             {
@@ -95,7 +95,7 @@ public class BossHand : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
 
             if (possessed == true)

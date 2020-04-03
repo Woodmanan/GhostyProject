@@ -60,12 +60,12 @@ public class Stalactite : MonoBehaviour
         if (active)
         {
             //See if we disconnect
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !disconnected)
+            if (Input.GetKeyDown(KeyCode.Z) && !disconnected)
             {
                 stopPossession();
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && !disconnected)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !disconnected)
             {
                 stopPossession();
                 ghost.disableGhostMode();
