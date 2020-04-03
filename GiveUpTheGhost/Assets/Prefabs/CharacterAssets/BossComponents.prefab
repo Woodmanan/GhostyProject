@@ -635,9 +635,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  shakeLength: 3
-  leftlimit: -2
-  rightlimit: 2
+  shakeLength: 4
+  leftlimit: -0.5
+  rightlimit: 0.5
   BossHealth: 5
   DamageReceivedFromFist: 1
   round: {fileID: 2822091886833511352, guid: b73ded62e1de1564f80bf76f19f9a8aa, type: 3}
