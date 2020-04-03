@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
@@ -51,6 +52,8 @@ public class Character : MonoBehaviour
     private CapsuleCollider2D capsule;
     private PlayerAnimation pa;
 
+    private PhysicsMaterial2D mat;
+
     private bool onGroundLast = true;
 
     // Start is called before the first frame update
@@ -63,6 +66,7 @@ public class Character : MonoBehaviour
         ghost = GameObject.FindGameObjectWithTag("Ghost").GetComponent<Ghost>();
         capsule = GetComponent<CapsuleCollider2D>();
         pa = GetComponentInChildren<PlayerAnimation>();
+        mat = GetComponent<CapsuleCollider2D>().sharedMaterial;
         setFriction(0);
     }
 
@@ -338,9 +342,13 @@ public class Character : MonoBehaviour
             Debug.Log("changing volume");
             GetComponent<AudioSource>().volume = 1f;
         }
+
+        if (dmg > 0)
+        {
+            StartCoroutine(DamageFlash());
+        }
         GetComponent<AudioSource>().PlayOneShot(damagesfx);
         GetComponent<AudioSource>().volume = 0.1f;
-        StartCoroutine(DamageFlash());
         if (health <= 0)
         {
             Die();
@@ -353,7 +361,7 @@ public class Character : MonoBehaviour
     private void OnDestroy()
     {
         //print("Destroying");
-        setFriction(0);
+        mat.friction = 0;
         //GetComponent<CapsuleCollider2D>().sharedMaterial.friction = 1;
     }
 

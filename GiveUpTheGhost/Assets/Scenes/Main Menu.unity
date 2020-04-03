@@ -445,7 +445,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.64793, y: 0.64793, z: 0.64793}
-  m_Children: []
+  m_Children:
+  - {fileID: 2011048705}
   m_Father: {fileID: 498065367}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -472,7 +473,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\tSpirit Mode\n\nWASD\t   Move your spirit\nLeft Shift  Possess an object\n"
+  m_text: "\tSpirit Mode\n\nWASD\t   Move your spirit\nZ           Possess an object\nLeft
+    Shift  Return to Body\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f52d5651a06148848555fa440ff4540, type: 2}
   m_sharedMaterial: {fileID: -9206770013251266585, guid: 1f52d5651a06148848555fa440ff4540,
@@ -542,12 +544,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 477473018}
-    characterCount: 69
+    characterCount: 96
     spriteCount: 0
-    spaceCount: 17
-    wordCount: 12
+    spaceCount: 31
+    wordCount: 16
     linkCount: 0
-    lineCount: 4
+    lineCount: 5
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -556,7 +558,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2011048706}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -2064,8 +2066,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\tPlayer Mode\n\nA-D        Move left to right\nW          Jumps\nSpace      
-    Send out your spirit\n"
+  m_text: "\tPlayer Mode\n\nA-D        Move left to right\nW          Jumps\nLeft
+    Shift  Send out your spirit\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f52d5651a06148848555fa440ff4540, type: 2}
   m_sharedMaterial: {fileID: -9206770013251266585, guid: 1f52d5651a06148848555fa440ff4540,
@@ -2137,8 +2139,8 @@ MonoBehaviour:
     textComponent: {fileID: 1671621467}
     characterCount: 94
     spriteCount: 0
-    spaceCount: 38
-    wordCount: 15
+    spaceCount: 34
+    wordCount: 16
     linkCount: 0
     lineCount: 5
     pageCount: 1
@@ -2308,6 +2310,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1db11d44797d384fb9927fbc963cff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2011048704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2011048705}
+  - component: {fileID: 2011048707}
+  - component: {fileID: 2011048706}
+  m_Layer: 5
+  m_Name: TMP SubMeshUI [Leander Atlas Material + LiberationSans SDF Atlas]
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2011048705
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011048704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 477473017}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2011048706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011048704}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_spriteAsset: {fileID: 0}
+  m_material: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
+  m_isDefaultMaterial: 0
+  m_padding: 1.25
+  m_canvasRenderer: {fileID: 2011048707}
+  m_TextComponent: {fileID: 477473018}
+  m_materialReferenceIndex: 1
+--- !u!222 &2011048707
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011048704}
+  m_CullTransparentMesh: 0
 --- !u!1 &2098871684
 GameObject:
   m_ObjectHideFlags: 0

@@ -73,11 +73,11 @@
         <option value="$PROJECT_DIR$/Assets/SetCheckpoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/GreenWiggle.shader" />
         <option value="$PROJECT_DIR$/Assets/PossesTexControls.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Possessable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Stalactite.cs" />
         <option value="$PROJECT_DIR$/Assets/Scenes/BossFight/BossHand.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Monster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
       </list>
     </option>
   </component>
@@ -178,7 +178,8 @@
       <workItem from="1585878034844" duration="2980000" />
       <workItem from="1585882455389" duration="914000" />
       <workItem from="1585883542936" duration="1186000" />
-      <workItem from="1585884885142" duration="255000" />
+      <workItem from="1585884885142" duration="488000" />
+      <workItem from="1585885561704" duration="686000" />
     </task>
     <servers />
   </component>
