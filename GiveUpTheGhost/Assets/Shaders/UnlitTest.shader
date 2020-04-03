@@ -3,11 +3,10 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _ActualOff("Actual Offset", float) = 0
-        _HeightMult("Height Multiplier", float) = 0
-        _Offset("Offset Multiplier", float) = 0
-        _OffAmt("Offset Amount", float) = 0
-        _GrnAmt("Green Amount", float) = 0
+        _Off("Sample Offset", float) = 0
+        _BThresh("Black Threshold", float) = .1
+        _SampleCount("Num Samples", float) = 8
+        _Col("OOB Color", float) = (0,0,0,0)
     }
     SubShader
     {
@@ -44,10 +43,10 @@
             float4 _MainTex_ST;
             
             uniform float _ActualOff;
-            uniform float _HeightMult;
-            uniform float _Offset;
-            uniform float _OffAmt;
-            uniform float _GrnAmt;
+            uniform float _Off;
+            uniform float _BThresh;
+            uniform float _SampleCount;
+            uniform float4 _Col;
 
             v2f vert (appdata v)
             {
@@ -57,24 +56,44 @@
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
+            
+            bool isBlack(float4 col)
+            {
+                float add = col.x + col.y + col.z;
+                return add < _BThresh;
+            }
+            
+            float4 sample(float2 uv, float xOff, float yOff)
+            {
+                float2 update = float2(uv.x + xOff, uv.y + yOff);
+                float outBounds = (step(update.x, 0) + step(1, update.x));
+                outBounds = outBounds + step(update.y, 0) + step(1, update.y);
+                float inBounds = 1 - outBounds;
+                return _Col * outBounds + tex2D(_MainTex, update) * inBounds;
+            }
 
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-                float sideOffset = sin(i.uv.y * _HeightMult + _OffAmt) * _Offset;
-                float2 uv = float2(i.uv.x * _ActualOff + sideOffset,  i.uv.y);
-                fixed4 col = tex2D(_MainTex, uv);
+                float add = 1;
+                fixed4 col = sample(i.uv, 0, 0);
                 
-                float green = 1 - _GrnAmt;
+                if (_SampleCount == 0)
+                {
+                    return col;
+                }
                 
-                float4 greenCol = float4(green, 1, green, 1);
-                col = col * greenCol;
+                for (float angle = 0; angle < 360; angle += 360 / _SampleCount)
+                {
+                    float4 next = sample(i.uv, cos(angle) * _Off, sin(angle) * _Off);
+                    float addVal = next.x + next.y + next.z;
+                    float shouldAdd = step(_BThresh, addVal);
+                    add += shouldAdd;
+                    col += next;
+                }
                 
-                float val = (step(uv.x, 0) + step(1, uv.x));//* (step(uv.y, 0) + step(1, uv.y)); 
-                float val2 = 1-val;       
-                float4 blank = float4(0,0,0,0);
                 
-                return col * val2 + blank * val;
+                return col / add;
             }
             ENDCG
         }

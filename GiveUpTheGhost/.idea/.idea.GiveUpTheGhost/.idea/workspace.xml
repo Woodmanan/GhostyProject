@@ -67,13 +67,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/GhostCircle.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CircleController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Shaders/UnlitTest.shader" />
         <option value="$PROJECT_DIR$/Assets/Shaders/GreenWiggle.shader" />
         <option value="$PROJECT_DIR$/Assets/PossesTexControls.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Stalactite.cs" />
         <option value="$PROJECT_DIR$/Assets/Scenes/BossFight/BossHand.cs" />
         <option value="$PROJECT_DIR$/Assets/Scenes/BossFight/Boss.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/UnlitTest.shader" />
       </list>
     </option>
   </component>
@@ -166,6 +166,10 @@
       <workItem from="1585752327235" duration="6842000" />
       <workItem from="1585867199014" duration="2178000" />
       <workItem from="1585872066724" duration="192000" />
+      <workItem from="1585873541552" duration="1619000" />
+      <workItem from="1585875272435" duration="96000" />
+      <workItem from="1585875822547" duration="176000" />
+      <workItem from="1585876641250" duration="498000" />
     </task>
     <servers />
   </component>
@@ -188,6 +192,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="171" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585874191484">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="552" y="171" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1504.963@0.0.1504.963" timestamp="1585874191484" />
     <state x="409" y="222" key="run.anything.popup" timestamp="1585755931297">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
