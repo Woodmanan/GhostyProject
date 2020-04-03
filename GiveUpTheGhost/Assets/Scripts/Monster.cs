@@ -111,13 +111,13 @@ public class Monster : MonoBehaviour
         {
 
             SpriteRenderer currentImage = transform.Find("MonsterSprite").GetComponent<SpriteRenderer>();
-            currentImage.flipX = false;
+            currentImage.flipX = true;
 
         }
         else
         {
             SpriteRenderer currentImage = transform.Find("MonsterSprite").GetComponent<SpriteRenderer>();
-            currentImage.flipX = true;
+            currentImage.flipX = false;
 
         }
 

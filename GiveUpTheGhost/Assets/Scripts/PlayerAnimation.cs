@@ -55,6 +55,16 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Make landing shorter
+        if (currentAnimId == "leftLand" || currentAnimId == "rightLand")
+        {
+            FPI = 2;
+        }
+        else
+        {
+            FPI = 3;
+        }
+
         while (Time.time - lastFrameStart > 1f / (float)FPS)
         {
             frameCount++;

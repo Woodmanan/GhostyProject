@@ -13,6 +13,7 @@ public class Ghost : MonoBehaviour
     private Rigidbody2D rigid;
     private CircleController radius;
     private SpriteRenderer sprite;
+    private GhostAnimation ga;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class Ghost : MonoBehaviour
         radius.setRad(body.getDistance());
         sprite = GetComponent<SpriteRenderer>();
         sprite.enabled = false;
+        ga = GetComponent<GhostAnimation>();
     }
 
     //Events that need to happen before physics
@@ -109,16 +111,27 @@ public class Ghost : MonoBehaviour
                 float hMove = Input.GetAxisRaw("Horizontal") * speed;
                 float vMove = Input.GetAxisRaw("Vertical") * speed;
 
-                if (Input.GetAxisRaw("Horizontal") > 0)
+                // Handle animation
+                if (!ga.turning)
                 {
-                    sprite.flipX = false;
-                    
-                }
-                else if(Input.GetAxisRaw("Horizontal") < 0)
-                {
-                    sprite.flipX = true;
+                    if (Input.GetAxisRaw("Horizontal") > 0) // Right
+                    {
+                        if (ga.facing < 0) ga.SetAnimation("leftTurn");
+                        else if (ga.facing == 0) ga.SetAnimation("rightTurn");
 
+                    }
+                    else if (Input.GetAxisRaw("Horizontal") < 0)
+                    {
+                        if (ga.facing > 0) ga.SetAnimation("rightTurn");
+                        else if (ga.facing == 0) ga.SetAnimation("leftTurn");
+                    }
+                    else
+                    {
+                        if (ga.facing < 0) ga.SetAnimation("leftTurn");
+                        else if (ga.facing > 0) ga.SetAnimation("rightTurn");
+                    }
                 }
+                
 
                 /*
                 Vector3 directionMoved = new Vector3(hMove, vMove, 0);
