@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class Character : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class Character : MonoBehaviour
     public AudioClip beBoy;
     public AudioClip jumpsfx;
     public AudioClip land;
+    public AudioClip damagesfx;
 
 
     private List<string> floors = new List<string>() { "Floor", "Platform", "RightHand", "LeftHand"};
@@ -331,10 +333,14 @@ public class Character : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         health -= dmg;
-        if (dmg > 0)
+        if (SceneManager.GetActiveScene().name == "Boss Level")
         {
-            StartCoroutine(DamageFlash());
+            Debug.Log("changing volume");
+            GetComponent<AudioSource>().volume = 1f;
         }
+        GetComponent<AudioSource>().PlayOneShot(damagesfx);
+        GetComponent<AudioSource>().volume = 0.1f;
+        StartCoroutine(DamageFlash());
         if (health <= 0)
         {
             Die();

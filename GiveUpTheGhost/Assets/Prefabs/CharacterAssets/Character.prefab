@@ -621,6 +621,7 @@ MonoBehaviour:
   beBoy: {fileID: 8300000, guid: 8f99a75104b504067b2958d211f93c8a, type: 3}
   jumpsfx: {fileID: 8300000, guid: 057e6cef9f0e946fab85e39fa66f4191, type: 3}
   land: {fileID: 8300000, guid: cf114151a1fc6450d88e97c159c6a9c3, type: 3}
+  damagesfx: {fileID: 8300000, guid: 29ebe3557966c466cb9bdc51cf638b6f, type: 3}
   radius: 4.5
   groundCheck: {x: 0, y: -0.42}
   jumpRad: 0.23
