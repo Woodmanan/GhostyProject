@@ -69,8 +69,8 @@
                 
                 float green = 1 - _GrnAmt;
                 
-                float4 greenCol = float4(green, 1, green, 1);
-                col = col * greenCol;
+                float4 greenCol = float4(0, 1, 0, 1);
+                col = col * green + greenCol * _GrnAmt;
                 
                 float val = (step(uv.x, 0) + step(1, uv.x));//* (step(uv.y, 0) + step(1, uv.y)); 
                 float val2 = 1-val;       

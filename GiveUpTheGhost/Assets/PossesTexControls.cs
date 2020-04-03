@@ -13,12 +13,14 @@ public class PossesTexControls : MonoBehaviour
     private float offset;
     [SerializeField] private float maxGreen;
     [SerializeField] private float maxOffset;
+    public Color floatColor;
 
     private static readonly int OffAmt = Shader.PropertyToID("_OffAmt");
 
     private float amt;
     private static readonly int GrnAmt = Shader.PropertyToID("_GrnAmt");
     private static readonly int Offset = Shader.PropertyToID("_Offset");
+    private static readonly int Color = Shader.PropertyToID("_Color");
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +58,7 @@ public class PossesTexControls : MonoBehaviour
         mat.SetFloat(OffAmt, offset);
         mat.SetFloat(GrnAmt, maxGreen * amt);
         mat.SetFloat(Offset, maxOffset * amt);
+        mat.SetColor(Color, floatColor);
     }
 
     public void reset()

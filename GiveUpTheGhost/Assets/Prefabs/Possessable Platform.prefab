@@ -332,3 +332,4 @@ MonoBehaviour:
   wiggleSpeed: 0
   maxGreen: 1.4
   maxOffset: 0
+  floatColor: {r: 0.6886792, g: 0.38492635, b: 0, a: 1}

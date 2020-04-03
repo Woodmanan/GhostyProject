@@ -331,8 +331,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wiggleSpeed: 3
-  maxGreen: 0.9
+  maxGreen: 0.5
   maxOffset: 0.06
+  floatColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!82 &2099460172564276277
 AudioSource:
   m_ObjectHideFlags: 0
